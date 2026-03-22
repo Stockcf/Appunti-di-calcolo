@@ -8,7 +8,7 @@ Il progetto è stato inizialmente sviluppato a partire da una repository trovata
 Se ti interessa solo il PDF, puoi visualizzarlo o scaricarlo direttamente qui:
 [📥 Scarica main.pdf](https://github.com/Stockcf/Appunti-di-calcolo/raw/main/main.pdf)
 
-*(gli appunti sono in fase di scrittura, verranno terminate nel corso dell'AA 25/26)*
+*(gli appunti sono in fase di scrittura, verranno terminati nel corso dell'AA 25/26)*
 
 
 ## 📁 Struttura del Progetto
