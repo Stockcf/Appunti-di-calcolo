@@ -2,9 +2,12 @@
 
 **Autore:** R. Castagni Fabbri
 
-Questo progetto è una raccolta di appunti di calcolo numerico.
+Questa repository contiene una raccolta di appunti di Calcolo Numerico, scritti in LaTeX e organizzati in capitoli modulari.
+Il progetto è stato inizialmente sviluppato a partire da una repository trovata su GitHub, poi adattato, ampliato e personalizzato per creare una struttura più pulita e riutilizzabile.
 
-Se si è interessati al solo Pdf lo si può consultare/scaricare direttamente dalla repository.
+Se ti interessa solo il PDF, puoi visualizzarlo o scaricarlo direttamente qui:
+main.pdf
+
 
 ## 📁 Struttura del Progetto
 
