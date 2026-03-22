@@ -2,7 +2,7 @@
 
 **Autore:** R. Castagni Fabbri
 
-Questo progetto è una raccolta di appunti strutturati per organizzare appunti universitari e tecnici in LaTeX.
+Questo progetto è una raccolta di appunti di calcolo numerico.
 
 ## 📁 Struttura del Progetto
 
