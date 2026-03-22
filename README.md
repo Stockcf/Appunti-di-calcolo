@@ -4,6 +4,8 @@
 
 Questo progetto è una raccolta di appunti di calcolo numerico.
 
+Se si è interessati al solo Pdf lo si può consultare/scaricare direttamente dalla repository.
+
 ## 📁 Struttura del Progetto
 
 ```
