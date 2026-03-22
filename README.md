@@ -6,7 +6,8 @@ Questa repository contiene una raccolta di appunti di Calcolo Numerico, scritti 
 Il progetto è stato inizialmente sviluppato a partire da una repository trovata su GitHub (https://github.com/YuriODev/MathsCodeBook?tab=CC0-1.0-1-ov-file).
 
 Se ti interessa solo il PDF, puoi visualizzarlo o scaricarlo direttamente qui:
-[![Download PDF](https://img.shields.io/badge/PDF-download-blue)](https://github.com/Stockcf/Appunti-di-calcolo/raw/main/main.pdf)
+[📥 Scarica main.pdf](https://github.com/Stockcf/Appunti-di-calcolo/raw/main/main.pdf)
+
 
 
 ## 📁 Struttura del Progetto
