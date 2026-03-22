@@ -1,0 +1,79 @@
+\chapter{Introduzione}
+
+\section{Problema diretto}
+\begin{defi}[Problema Diretto]
+Il problema diretto consiste nel calcolare la \textcolor{blue}{soluzione} (\textcolor{blue}{$x$}) di una funzione $F$ dato un \textcolor{blue}{set di dati} specifico (\textcolor{blue}{$d \epsilon D$}), in simboli:
+\[
+\textcolor{blue}{trova \, {x} \mid F(x, d) = 0 \quad x,d \, \epsilon \, \mathbb{R}^n}
+\]
+
+\end{defi}
+
+Per studiare un “fenomeno”, sia esso naturale quale il moto di un pianeta o sia
+esso un prodotto umano quale il propagarsi dell'inquinamento atmosferico o la
+costruzione di un ponte, la matematica fornisce strumenti per realizzare ed analiz
+zare dei $modelli$ che descrivono, tenendo conto delle varie $approssimazioni$, il fenomeno stesso.
+
+Generalmente un modello matematico è un $modello \, continuo$ (di solito un si
+stema di equazioni differenziali) che consente di individuare le proprietà qualitative
+della soluzione, come esistenza, unicità, regolarità, ecc., ma spesso non permette di
+determinare analiticamente la soluzione. \' E perciò necessario effettuare un'ulteriore
+approssimazione sostituendo il modello continuo con un $modello \, discreto$ (processo di
+discretizzazione).
+
+\'E ovvio che nella discretizzazione si introducono degli $errori$ dovuti principalmente a due fattori:
+\begin{itemize}
+\item \textbf{Rappresentazione dei dati}: i calcolatori rappresentano i numeri con un numero finito di cifre.
+\item \textbf{Operazioni aritmetiche}: le operazioni aritmetiche sui numeri rappresentati con un numero finito di cifre introducono errori di arrotondamento.
+\end{itemize}
+
+Gli errori di rappresentazione dei dati e gli errori prodotti dalle singole ope
+razioni si propagano nel corso dei calcoli e generano nella soluzione effettivamente
+calcolata degli errori che vengono chiamati rispettivamente $errore \, inerente$ ed $errore \, algoritmico$.
+
+\section{Problemi stabili e malcondizionati}
+
+Esistono problemi tali che, qualunque algoritmo venga utilizzato per risolverli,
+l'errore generato nel risultato risulta elevato e tale da rendere privo di significato il risultato stesso. \\
+Per questi problemi, detti $malcondizionati$, piccole variazioni nei dati inducono grosse variazioni nei risultati.
+
+\begin{defi}[Stabilità]
+Si consideri un generico problema diretto. Sia \textcolor{blue}{$\delta_d$} una generica \textcolor{blue}{perturbazione nei dati} e \textcolor{blue}{$\delta_x$}
+la corrispondente variazione nella soluzione (\textcolor{blue}{$F(x+\delta_x, d+\delta_d)=0$}), allora il problema è detto \textcolor{blue}{stabile} se:
+\[
+\textcolor{blue}{\exists k_0(d) \in \mathbb{R}^n : \|\delta_x\| \leq k_0(d) \|\delta_d\|}
+\]
+dove \textcolor{blue}{$k_0(d)$} è una costante che non dipende da \textcolor{blue}{$\delta_d$}
+o \textcolor{blue}{$\delta_x$}.
+Si parla di \textcolor{blue}{stabilità relativa} se:
+\[
+\textcolor{blue}{\exists k_0(d) \in \mathbb{R}^n : \frac{\|\delta_x\|}{\|x\|} \leq k_0(d) \frac{\|\delta_d\|}{\|d\|}}
+\]
+\end{defi}
+
+
+\subsection{Numero di Condizionamento}
+Definiamo ora il concetto di \textcolor{purple}{numero di condizionamento}. Questo, altro 
+non è che una misura della sensibilità del problema alle perturbazioni nei dati.
+
+\begin{defi}[Numero di Condizionamento]
+    Si consideri un generico problema diretto con \textcolor{purple}{$x\neq0$} 
+    e \textcolor{purple}{$d\neq0$}. Definiamo:
+    \begin{itemize}
+        \item \textcolor{purple}{$\kappa_{abs}(d)$}: numero di condizionamento assoluto del problema.\[\textcolor{purple}{K_{abs}(d) = \sup\left\{ \frac{\|\delta_x\|}{\|\delta_d\|}; \delta_d \neq 0\right\}} \]
+        \item \textcolor{purple}{$\kappa(d)$}: numero di condizionamento relativo del problema.\[\textcolor{purple}{K(d) = \sup\left\{\frac{\|\delta_x\|}{\|x\|}\frac{\|d\|}{\|\delta_d\|}; \delta_d \neq 0\right\}}\]
+    \end{itemize}
+\end{defi}
+
+\begin{exercise}
+Esempio di calcolo del numero di condizionamento per un problema specifico:
+Supponiamo di avere un problema diretto definito da una funzione $F(x, d) = 0$ dove:
+\[
+ F(x, d) = x - (d_1+d_2) = 0
+\]
+Adottando sul nostro spazio la norma $\|\cdot\|_{l_1}$ dimostra che il numero di condizionamento relativo del problema è $K(d) = 1$.
+\end{exercise}
+
+\begin{obs}
+    La norma $\|\cdot\|_{l_1}$ nell'esempio agisce sia su $x \epsilon \mathbb{R}$ che su $d \epsilon \mathbb{R}^2$.
+\end{obs}

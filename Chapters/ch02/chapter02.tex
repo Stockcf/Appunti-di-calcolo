@@ -1,0 +1,290 @@
+\chapter{Sistemi di Equazioni Lineari}
+
+Un \textcolor{orange}{sistema lineare} è un particolare tipo di problema diretto in cui la funzione \textcolor{orange}{$F$}
+è definita come:
+\[\textcolor{orange}{F(x, d) = Ax - d}\]
+con $A \in \mathbb{R}^{n \times n}, x, d \in \mathbb{R}^n$.
+
+I metodi risolutivi per i sistemi lineari sono suddivisibili in due macro-categorie:
+\begin{itemize}
+\item \textcolor{orange}{Metodi diretti}: forniscono la soluzione esatta in un numero finito di operazioni.
+
+Esempi: eliminazione di Gauss, fattorizzazione LU, fattorizzazione Cholesky.
+\item \textcolor{orange}{Metodi iterativi}: forniscono una soluzione approssimata che converge alla soluzione esatta dopo un numero finito di iterazioni.
+
+Esempi: metodo di Jacobi, metodo di Gauss-Seidel, metodo del gradiente coniugato.
+\end{itemize}
+
+In ogni caso però, qualunque metodo si usi, non si pu`o prescindere dagli
+errori di rappresentazione dei dati e di arrotondamento nei calcoli.
+
+Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono non singolari (invertibili).
+\begin{theorem}
+    Data una \textcolor{orange}{norma} $\|\cdot\|$ su $\mathbb{R}^n$, sia \textcolor{orange}{$\|\cdot\|_m$} 
+    la norma indotta su $\mathbb{R}^{n \times n}$, il \textcolor{orange}{numero di condizionamento} di un
+    sistema lineare $\textcolor{orange}{Ax = b}$ è definito come:
+    \[\textcolor{orange}{K(A) = \|A\|_m \|A^{-1}\|_m}\]
+\end{theorem}
+
+\begin{proof}
+    Dimostriamo che $K(A)$ è una misura della sensibilità del sistema alle perturbazioni nei dati. Consideriamo una perturbazione $\delta b$ nei dati $b$ e la corrispondente variazione $\delta x$ nella soluzione $x$. Abbiamo:
+    \[
+    A(x + \delta x) = b + \delta b
+    \]
+    Sostituendo $Ax = b$, otteniamo:
+    \[
+    A\delta x = \delta b
+    \]
+    Moltiplicando entrambi i lati per $A^{-1}$, otteniamo:
+    \[
+    \delta x = A^{-1} \delta b
+    \]
+    Prendendo le norme, otteniamo:
+    \[
+    \|\delta x\| \leq \|A^{-1}\|_m \|\delta b\|
+    \]
+    D'altra parte, abbiamo anche:
+    \[
+    \|b\| = \|Ax\| \leq \|A\|_m \|x\|
+    \]
+    Combinando queste due disuguaglianze, otteniamo:
+    \[
+    \frac{\|\delta x\|}{\|x\|} \leq K(A) \frac{\|\delta b\|}{\|b\|}
+    \]
+\end{proof}
+
+\begin{obs}
+    Per semplicità abbiamo perturbato i dati $b$, ma è possibile perturbare anche la matrice 
+    $A$ e ottenere risultati simili.
+\end{obs}
+
+\subsection{Esempi di metodi diretti}
+
+\begin{example}[Matrice diagonale]
+Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice diagonale, ovvero:
+\[A = \begin{bmatrix}
+a_{11} & 0 & \cdots & 0 \\
+0 & a_{22} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & a_{nn}
+\end{bmatrix}\]
+In questo caso, la soluzione del sistema è immediata e data da:
+\[x_i = \frac{b_i}{a_{ii}} \quad \text{per } i = 1, 2, \ldots, n\]
+\end{example}
+
+\begin{example}[Matrice triangolare]
+Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice triangolare superiore, ovvero:
+\[A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+0 & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & a_{nn}
+\end{bmatrix}\]
+In questo caso, la soluzione del sistema può essere trovata tramite il metodo di sostituzione all'indietro ($backward \, solve$), ovvero:
+\[x_n = \frac{b_n}{a_{nn}}, \quad x_i = \frac{b_i - \sum_{j=i+1}^n a_{ij}x_j}{a_{ii}}\]
+
+Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di sostituzione in avanti ($forward \, solve$).: 
+\[x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}\]
+\end{example}
+
+\begin{section}{Metodi diretti per la soluzione di sistemi lineari}
+Molti dei metodi numerici diretti utilizzano per la risoluzione dei sistemi lineari
+una fattorizzazione della matrice \textcolor{orange}{$A$} nel prodotto 
+di due matrici \textcolor{orange}{$B$} e \textcolor{orange}{$C$}:
+\textcolor{orange}{\[A = BC\]}
+La soluzione del sistema viene trovata risolvendo i due sistemi lineari:
+\[
+By = b \quad \text{e} \quad Cx = y
+\]
+
+Fattorizzazioni diverse della matrice A sono associate a metodi di risoluzione
+del sistema diversi. \\
+Noi vedremo le seguenti fattorizzazioni:
+\begin{enumerate}
+\item \textcolor{orange}{Fattorizzazione LU}: $$A = LU$$ dove $L$ è una matrice triangolare inferiore e $U$ è una matrice triangolare superiore.
+\item \textcolor{orange}{Fattorizzazione Cholesky}: $$A = LL^T$$ dove $L$ è una matrice triangolare inferiore.
+ Questa fattorizzazione è applicabile solo se $A$ è simmetrica e definita positiva.
+\item \textcolor{orange}{Fattorizzazione QR}: $$A = QR$$ dove $Q$ è una matrice unitaria e $R$ è una matrice triangolare superiore.
+\end{enumerate}
+
+\begin{obs}
+La lettera \textcolor{orange}{$L \, (R)$} è spesso utilizzata per indicare una matrice triangolare inferiore (superiore) perchè è l'abbreviazione
+ di \textcolor{orange}{$Lower \, (Upper)$}.
+\end{obs}
+
+\subsection{Matrici elementari}
+
+In questo paragrafo si introduce la classe delle matrici elementari e se
+ne analizzano le principali proprietà.
+
+\begin{defi}[Matrice elementare]
+Siano \textcolor{orange}{$\sigma \epsilon \mathbb{R}$} e \textcolor{orange}{$u, v \in \mathbb{R}^n$} con \textcolor{orange}{$u, v \neq 0$}.
+ La matrice elementare \textcolor{orange}{$E$} è definita come:
+\[\textcolor{orange}{E = I - \sigma uv^T}\]
+\end{defi}
+
+La classe delle matrici elementari non singolari è chiusa rispetto all'ope
+razione di inversione. Vale infatti il seguente teorema.
+
+\begin{theorem}
+    Ogni matrice elementare \textcolor{orange}{$E(\sigma, u, v)$} per cui \textcolor{orange}{$\sigma v^T u \neq 1$} è $invertibile$
+     e la sua $matrice \, inversa$ è sempre una matrice elementare della forma:
+     \textcolor{orange}{\[E(\tau, u, v) \quad con \, \tau \in \mathbb{R}\]}
+\end{theorem}
+
+\begin{proof}
+    Se $\sigma = 0$ la tesi è ovvia.
+    
+    Supponiamo ora $\sigma \neq 0$. Vogliamo dimostrare che esista $\tau \in \mathbb{R}$ tale che:
+    \[
+    E(\sigma, u, v) E(\tau, u, v) = I
+    \]
+    Sviluppando il prodotto:
+    \[
+    (I - \sigma uv^T)(I - \tau uv^T) = I - \sigma uv^T - \tau uv^T + \sigma \tau (uv^T)(uv^T)
+    \]
+    Poiché $(uv^T)(uv^T) = u(v^T u)v^T = (v^T u)uv^T$, otteniamo:
+    \[
+    I - (\sigma + \tau) uv^T + \sigma \tau (v^T u) uv^T
+    \]
+    Per ottenere l'identità, dobbiamo avere:
+    \[
+    -(\sigma + \tau) + \sigma \tau (v^T u) = 0
+    \]
+    Risolvendo rispetto a $\tau$:
+    \[
+    \tau = -\frac{\sigma}{1 - \sigma v^T u}
+    \]
+    Da cui la condizione:
+    \[\sigma v^T u \neq 1\]
+\end{proof}
+
+Assegnati comunque due vettori non nulli, esiste sempre una matrice
+elementare non singolare che trasforma il primo vettore nel secondo. Vale
+infatti il seguente teorema.
+
+\begin{theorem}
+    Siano \textcolor{orange}{$x, y \in \mathbb{R}^n$} due vettori non nulli.
+     Allora esiste sempre una matrice elementare non singolare \textcolor{orange}{$E(\sigma, u, v)$} t.c.:
+    \textcolor{orange}{\[E(\sigma, u, v)x = y\]}
+\end{theorem}
+
+\begin{proof}
+    La condizione $E(\sigma, u, v)x = y$ è equivalente a:
+    \[(I - \sigma uv^T)x = y\]
+Sviluppando:
+\[x - \sigma u(v^T x) = y\]
+Da cui:
+\[\sigma u(v^T x) = x - y\]
+Scegliendo $u = x - y$ e $v = x$, otteniamo:
+\[\sigma (x - y)(v^T x) = x - y\]
+Da cui:
+\[\sigma = \frac{1}{v^T x} = \frac{1}{x^T x}\]
+\end{proof}
+
+Due classi di matrici elementari particolarmente importanti per i nostri scopi sono:
+
+\begin{itemize}
+\item \textcolor{orange}{Matrice elemenentare di Gauss}: è una matrice elementare della forma:
+\[\ M = (\sigma, u, e_1) \quad per \, cui: \, Mx = x_1 e_1\]
+in cui $x \in \mathbb{R}^n, \, con \, x_1 \neq 0$.
+
+\begin{obs}
+    La matrice elementare di Gauss è quindi utilizzata per annullare le componenti di un vettore, ad eccezione della prima.
+\end{obs}
+Per costruire una matrice elementare di Gauss che annulli le componenti di un vettore $x$ ad eccezione della prima, possiamo scegliere:
+\[
+M =
+\begin{pmatrix}
+1 &  &  &  \\
+-m_{21} & 1 &  & \\
+\vdots & & \ddots &  \\
+-m_{n1} &  &  & 1
+\end{pmatrix}
+\]
+dove $m_{i1} = \frac{x_i}{x_1}$ per $i = 2, 3, \ldots, n$.
+
+\end{itemize}
+
+\begin{subsection}{Metodo di Gauss - Fattorizzazione LU}
+
+In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sistemi lineari.
+
+\begin{theorem}
+    Si può sempre \textcolor{orange}{fattorizzare} una matrice $A \in \mathbb{R}^{n \times n}$ in un prodotto di due matrici $E$ ed $U$,
+    dove $E$ è un prodotto di matrici elementari e $U$ è una matrice triangolare superiore:
+    \[\textcolor{orange}{A = EU}\]
+\end{theorem}
+
+\begin{proof}{(per induzione su n)}
+
+    Sia $A$ una matrice $n \times n$.
+    Pensiamo ad $A$ come ad una matrice $A = A^{(1)}$ composta da una colonna $a_1$ e da una matrice $B$ composta dalle restanti colonne:
+    \[A^{(1)} = [a_1 | B]\]
+    Sia $E^{(1)}$ una matrice elementare non singolare che annulli le componenti di $a_1$ ad eccezione della prima, ovvero:
+    \[E^{(1)} a_1 = a_{11} e_1\]
+    Moltiplicando entrambi i lati per $E^{(1)}$, otteniamo:
+    \[A^{(2)} = E^{(1)} A^{(1)} = [\mathbf{b_1}|E^{(1)} B]\]
+    Dove:
+    \[
+    A^{(2)} = \begin{bmatrix}
+    \alpha & \textbf{c}^t \\
+    \textbf{0} & B^{(2)}
+    \end{bmatrix}
+    \]
+    Iterando n-1 volte questo processo sulla sottmatrice $B^{(2)}$, otteniamo una successione
+    di matrici $A^{(k)} \, k = 1, 2, \ldots, n$ tali che:
+    \[A^{(k)} = \begin{bmatrix}
+    C^{(k)} & D^{(k)} \\
+    \mathbf{0} & B^{(k)}
+    \end{bmatrix}\]
+    Dove $C^{(k)} \in \mathbb{R}^{(k-1) \times (k-1)}, D^{(k)} \in \mathbb{R}^{(k-1) \times (n-k+1)}, B^{(k)} \in \mathbb{R}^{(n-k+1) \times (n-k+1)}$.
+    Inoltre ipotizziamo che $C^{(k)}$ sia triangolare superiore e che $B^{(k)}$ sia invertibile.
+    
+    Prendiamo ora la matrice elementare $F^{(k)} \in \mathbb{R}^{(n-k+1) \times (n-k+1)}$ che annulli le componenti della prima colonna di $B^{(k)}$ ad 
+    eccezione della prima, ovvero:
+    \[
+    F^{(k)} B^{(k)} = \begin{bmatrix}
+    \beta & \mathbf{d}^t \\
+    \mathbf{0} & B^{(k+1)}
+    \end{bmatrix}
+    \]
+    Definiamo ora la matrice elementare (ne viene evitata la dimostrazione) $E^{(k)}$ come:
+    \[
+    E^{(k)} = \begin{bmatrix}
+    I_{k-1} & \mathbf{0} \\
+    \mathbf{0} & F^{(k)}
+    \end{bmatrix}
+    \]
+    Moltiplicando $E^{(k)}$ per $A^{(k)}$, otteniamo:
+    \[A^{(k+1)} = E^{(k)} A^{(k)} = \begin{bmatrix}
+    C^{(k)} & D^{(k)} \\
+    \mathbf{0} & F^{(k)} B^{(k)}
+    \end{bmatrix} =
+    \begin{bmatrix} C^{(k)} & D^{(k)} \\ \mathbf{0} & \begin{bmatrix}
+    \beta & \textbf{d}^t \\
+    \textbf{0} & B^{(k+1)}
+    \end{bmatrix} \end{bmatrix} =
+    \begin{bmatrix} C^{(k+1)} & D^{(k+1)} \\ \mathbf{0} & B^{(k+1)} \end{bmatrix}
+    \]
+    Dove $C^{(k+1)}$ è ancora triangolare superiore e $B^{(k+1)}$, per il \textit{teorema dei minori e del minimo}, è invertibile.
+    All' $(n-1)$-esimo passo, otteniamo:
+    \[A^{(n)} = \begin{bmatrix} C^{(n)} & \textbf{g} \\ \mathbf{0}^t &\gamma \end{bmatrix}\]
+    Dove $C^{(n)}$ è triangolare superiore e $\gamma$ è un numero reale diverso da zero e quindi $A^{(n)}$
+    è una matrice triangolare superiore.
+    
+    Dato che $E(k)$ è non singolare per ogni $k = 1, 2, \ldots, n-1$, si ha:
+    \[
+        A = E^{(1)^{-1}} E^{(2)^{-1}} \cdots E^{(n-1)^{-1}} A^{(n)} = E A^{(n)} = EU \quad con \, E \, \mathit{matrice\ elementare}
+    \]
+    Da cui la tesi.
+\end{proof}
+
+\begin{defi}[Metodo (di eliminazione) di Gauss - Fattorizzazione LU]
+    Viene detto \textcolor{orange}{metodo di Gauss} o \textcolor{orange}{fattorizzazione LU} il metodo diretto per la risoluzione di 
+    sistemi lineari che si basa sulla fattorizzazione: 
+    \[\textcolor{orange}{A = LU}\], dove $L$ è un prodotto di matrici elementari di Gauss e $U$ è una matrice triangolare superiore.
+\end{defi}
+\end{subsection}
+
+\end{section}

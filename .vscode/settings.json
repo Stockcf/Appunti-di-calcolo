@@ -1,0 +1,5 @@
+{
+  "latex-workshop.view.pdf.viewer": "external",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoBuild.interval": 1000
+}

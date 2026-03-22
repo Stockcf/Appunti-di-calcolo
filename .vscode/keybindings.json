@@ -1,0 +1,6 @@
+[
+  {
+    "key": "alt+r",
+    "command": "latex-workshop.refresh-all-viewers"
+  }
+]
