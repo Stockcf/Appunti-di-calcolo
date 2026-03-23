@@ -53,15 +53,15 @@ Si parla di \textcolor{blue}{stabilità relativa} se:
 
 
 \subsection{Numero di Condizionamento}
-Definiamo ora il concetto di \textcolor{purple}{numero di condizionamento}. Questo, altro 
+Definiamo ora il concetto di \textcolor{blue}{numero di condizionamento}. Questo, altro 
 non è che una misura della sensibilità del problema alle perturbazioni nei dati.
 
 \begin{defi}[Numero di Condizionamento]
-    Si consideri un generico problema diretto con \textcolor{purple}{$x\neq0$} 
-    e \textcolor{purple}{$d\neq0$}. Definiamo:
+    Si consideri un generico problema diretto con \textcolor{blue}{$x\neq0$} 
+    e \textcolor{blue}{$d\neq0$}. Definiamo:
     \begin{itemize}
-        \item \textcolor{purple}{$\kappa_{abs}(d)$}: numero di condizionamento assoluto del problema.\[\textcolor{purple}{K_{abs}(d) = \sup\left\{ \frac{\|\delta_x\|}{\|\delta_d\|}; \delta_d \neq 0\right\}} \]
-        \item \textcolor{purple}{$\kappa(d)$}: numero di condizionamento relativo del problema.\[\textcolor{purple}{K(d) = \sup\left\{\frac{\|\delta_x\|}{\|x\|}\frac{\|d\|}{\|\delta_d\|}; \delta_d \neq 0\right\}}\]
+        \item \textcolor{blue}{$\kappa_{abs}(d)$}: numero di condizionamento assoluto del problema.\[\textcolor{blue}{K_{abs}(d) = \sup\left\{ \frac{\|\delta_x\|}{\|\delta_d\|}; \delta_d \neq 0\right\}} \]
+        \item \textcolor{blue}{$\kappa(d)$}: numero di condizionamento relativo del problema.\[\textcolor{blue}{K(d) = \sup\left\{\frac{\|\delta_x\|}{\|x\|}\frac{\|d\|}{\|\delta_d\|}; \delta_d \neq 0\right\}}\]
     \end{itemize}
 \end{defi}
 
@@ -77,3 +77,37 @@ Adottando sul nostro spazio la norma $\|\cdot\|_{l_1}$ dimostra che il numero di
 \begin{obs}
     La norma $\|\cdot\|_{l_1}$ nell'esempio agisce sia su $x \epsilon \mathbb{R}$ che su $d \epsilon \mathbb{R}^2$.
 \end{obs}
+
+Se la soluzione $(x)$ di un generico problema diretto esiste ed è unica, allora: 
+\[
+\exists ! G(d) = x  \qquad \text{tale che} \,\, F(G(d), d) = 0
+\]
+Dove $G$ è un'applicazione detta \textcolor{blue}{risolvente} del problema diretto. In questo caso, il numero di condizionamento relativo del problema è dato da:
+
+\begin{theorem}
+    Dato un generico problema diretto con soluzione unica e risolvente $G$ supposta \textcolor{blue}{continua}
+    e \textcolor{blue}{derivabile}, allora:
+    \[\textcolor{blue}{K(d) \leq \|G'(d)\| \frac{\|d\|}{\|G(d)\|}}\]
+    Il numero di condizionamento assoluto del problema è invece dato da:
+    \[\textcolor{blue}{K_{abs}(d) \approx \|G'(d)\|}\]
+\end{theorem}
+
+\begin{obs}
+
+\end{obs}
+
+\begin{proof}
+    Supponendo che $G$ sia continua e derivabile si ha:
+    \[
+    x+\delta_x = G(d+\delta_d) = G(d) + G'(d)\delta_d + o(\|\delta_d\|); \quad \delta_d \to 0
+    \]
+    da cui:
+    \[\delta_x = G(d+\delta_d) - x = G(d+\delta_d) - G(d) \approx G'(d)\delta_d + o(\|\delta_d\|)\]
+    e quindi:
+    \[
+    k(d) = \frac{\|\delta_x\|}{\|x\|} \frac{\|d\|}{\|\delta_d\|} \approx \frac{\|G'(d)\delta_d\|}{\|x\|}\frac{\|d\|}{\|\delta_d\|} \leq \|G'(d)\| \frac{\|d\|}{\|x\|}
+    \]
+    Dove nell'ultimo passaggio abbiamo utilizzato la disuguaglianza di Schwartz della norma.
+
+    L'approssimazione del numero di condizionamento assoluto segue da un ragionamento analogo.  
+\end{proof}

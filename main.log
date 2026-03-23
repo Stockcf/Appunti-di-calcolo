@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  22 MAR 2026 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  23 MAR 2026 12:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -936,32 +936,31 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_a_int=\count403
 \l__lipsum_b_int=\count404
  (c:/texlive/2026/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 21.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 19.
  (c:/texlive/2026/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
-)
-No file main.aux.
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-(c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+ (c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count405
 \scratchdimen=\dimen362
@@ -1019,7 +1018,7 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 21.
+Package hyperref Info: Link coloring ON on input line 19.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1055,14 +1054,38 @@ Package hyperref Info: Link coloring ON on input line 21.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex:20: Undefined control sequence.
+\defaulttitlepage ...e \scshape \@bookauthorshort 
+                                                  }\\[0.6\baselineskip ] \pa...
+l.20 \defaulttitlepage
+                        % Title page
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex:22: LaTeX Error: File `' not found.
+
+c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex:20: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.22 \defaulttitlepage
+l.20 \defaulttitlepage
+                        % Title page
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex:20: LaTeX Error: File `' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 \defaulttitlepage
                         % Title page
 I could not locate the file with any of these extensions:
 .pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
@@ -1091,6 +1114,47 @@ Non-PDF special ignored!
 
 
 {c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(56.9055pt, 341.43307pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 554.82875pt, 56.9055pt)
+* \paperwidth=455.24408pt
+* \paperheight=682.86613pt
+* \textwidth=341.43307pt
+* \textheight=554.82875pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-31.3056pt
+* \headheight=12.1pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+No file main.toc.
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+[2
+
+
+]
 \openout2 = `Chapters/ch01/chapter01.aux'.
 
  (./Chapters/ch01/chapter01.tex
@@ -1142,10 +1206,7 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 
 
 
-
-]
-Package marginnote Info: Using workaround for absolute page number on input line 39.
- [2]) [3]
+] [2]) [3]
 \openout2 = `Chapters/ch02/chapter02.aux'.
 
  (./Chapters/ch02/chapter02.tex
@@ -1164,7 +1225,6 @@ Overfull \hbox (6.36696pt too wide) in paragraph at lines 12--13
 
 
 
-
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
@@ -1177,24 +1237,47 @@ Underfull \vbox (badness 2302) has occurred while \output is active []
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
  [6]
-Overfull \hbox (2.58615pt too wide) in paragraph at lines 126--128
+Overfull \hbox (2.58615pt too wide) in paragraph at lines 127--129
 []\T1/ppl/m/n/10 La classe delle ma-trici el-e-men-tari non sin-go-lari è chiusa rispetto all'ope razione
  []
 
 [7] [8] [9]
-Overfull \hbox (1.98987pt too wide) in paragraph at lines 251--253
+Overfull \hbox (1.98987pt too wide) in paragraph at lines 253--255
 \T1/ppl/m/n/10 Definiamo ora la ma-trice el-e-mentare (ne viene evi-tata la di-mostrazione) $\OML/zplm/m/it/10 E[]$ \T1/ppl/m/n/10 come: 
  []
 
 
-Overfull \hbox (13.99612pt too wide) detected at line 269
+Overfull \hbox (13.99612pt too wide) detected at line 271
 \OML/zplm/m/it/10 A[] \OT1/zplm/m/n/10 = \OML/zplm/m/it/10 E[]A[] \OT1/zplm/m/n/10 = [] = [] = []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]) [11] (./main.aux (./Chapters/ch01/chapter01.aux) (./Chapters/ch02/chapter02.aux))
+ [10]) [11]
+\openout2 = `Chapters/ch03/chapter03.aux'.
+
+ (./Chapters/ch03/chapter03.tex
+Chapter 3.
+) [12
+
+
+
+]
+
+c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex:31: LaTeX Error: \begin{subsection} on input line 211 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 \end{document}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./main.aux (./Chapters/ch01/chapter01.aux) (./Chapters/ch02/chapter02.aux) (./Chapters/ch03/chapter03.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1207,21 +1290,27 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  696C8FAD0FF09C600E277FB4C33412D4;1780.
- ) 
+(rerunfilecheck)             After:  6DD9CD7978B61299DCAED38C37F009C1;2191.
+ )
+(\end occurred inside a group at level 3)
+
+### semi simple group (level 3) entered at line 211 (\begingroup)
+### semi simple group (level 2) entered at line 91 (\begingroup)
+### semi simple group (level 1) entered at line 61 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 44991 strings out of 467525
- 1017287 string characters out of 5423209
- 1657130 words of memory out of 5000000
- 73046 multiletter control sequences out of 15000+600000
- 684018 words of font info for 139 fonts, out of 8000000 for 9000
+ 45021 strings out of 467525
+ 1018151 string characters out of 5423209
+ 1657090 words of memory out of 5000000
+ 73062 multiletter control sequences out of 15000+600000
+ 682668 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,15n,131p,854b,1108s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,15n,131p,854b,1164s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (12 pages, 142407 bytes).
+Output written on main.pdf (14 pages, 146088 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

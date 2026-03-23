@@ -15,12 +15,12 @@ Esempi: eliminazione di Gauss, fattorizzazione LU, fattorizzazione Cholesky.
 Esempi: metodo di Jacobi, metodo di Gauss-Seidel, metodo del gradiente coniugato.
 \end{itemize}
 
-In ogni caso però, qualunque metodo si usi, non si pu`o prescindere dagli
+In ogni caso però, qualunque metodo si usi, non si può prescindere dagli
 errori di rappresentazione dei dati e di arrotondamento nei calcoli.
 
 Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono non singolari (invertibili).
 \begin{theorem}
-    Data una \textcolor{orange}{norma} $\|\cdot\|$ su $\mathbb{R}^n$, sia \textcolor{orange}{$\|\cdot\|_m$} 
+    Data una \textcolor{orange}{norma  $\|\cdot\|$} su $\mathbb{R}^n$, sia \textcolor{orange}{$\|\cdot\|_m$} 
     la norma indotta su $\mathbb{R}^{n \times n}$, il \textcolor{orange}{numero di condizionamento} di un
     sistema lineare $\textcolor{orange}{Ax = b}$ è definito come:
     \[\textcolor{orange}{K(A) = \|A\|_m \|A^{-1}\|_m}\]
@@ -54,11 +54,11 @@ Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono no
 \end{proof}
 
 \begin{obs}
-    Per semplicità abbiamo perturbato i dati $b$, ma è possibile perturbare anche la matrice 
-    $A$ e ottenere risultati simili.
+    Per semplicità abbiamo perturbato il vettore noto $b$ ($\delta_b$), ma è possibile perturbare anche la matrice 
+    $A$ ($\delta_A$) e ottenere risultati simili.
 \end{obs}
 
-\subsection{Esempi di metodi diretti}
+\begin{subsection}{Esempi di metodi diretti}
 
 \begin{example}[Matrice diagonale]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice diagonale, ovvero:
@@ -87,9 +87,10 @@ Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di s
 \[x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}\]
 \end{example}
 
+
 \begin{section}{Metodi diretti per la soluzione di sistemi lineari}
 Molti dei metodi numerici diretti utilizzano per la risoluzione dei sistemi lineari
-una fattorizzazione della matrice \textcolor{orange}{$A$} nel prodotto 
+una \textcolor{orange}{fattorizzazione} della matrice \textcolor{orange}{$A$} nel prodotto 
 di due matrici \textcolor{orange}{$B$} e \textcolor{orange}{$C$}:
 \textcolor{orange}{\[A = BC\]}
 La soluzione del sistema viene trovata risolvendo i due sistemi lineari:
@@ -109,7 +110,7 @@ Noi vedremo le seguenti fattorizzazioni:
 
 \begin{obs}
 La lettera \textcolor{orange}{$L \, (R)$} è spesso utilizzata per indicare una matrice triangolare inferiore (superiore) perchè è l'abbreviazione
- di \textcolor{orange}{$Lower \, (Upper)$}.
+ di \textcolor{orange}{$Lower \, (right \, o \, Upper)$}.
 \end{obs}
 
 \subsection{Matrici elementari}
@@ -206,6 +207,7 @@ dove $m_{i1} = \frac{x_i}{x_1}$ per $i = 2, 3, \ldots, n$.
 
 \end{itemize}
 
+
 \begin{subsection}{Metodo di Gauss - Fattorizzazione LU}
 
 In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sistemi lineari.
@@ -283,8 +285,7 @@ In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sis
 \begin{defi}[Metodo (di eliminazione) di Gauss - Fattorizzazione LU]
     Viene detto \textcolor{orange}{metodo di Gauss} o \textcolor{orange}{fattorizzazione LU} il metodo diretto per la risoluzione di 
     sistemi lineari che si basa sulla fattorizzazione: 
-    \[\textcolor{orange}{A = LU}\], dove $L$ è un prodotto di matrici elementari di Gauss e $U$ è una matrice triangolare superiore.
+    \[\textcolor{orange}{A = LU}\]
+    dove $L$ è un prodotto di matrici elementari di Gauss e $U$ è una matrice triangolare superiore.
 \end{defi}
-\end{subsection}
 
-\end{section}
