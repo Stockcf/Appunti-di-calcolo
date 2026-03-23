@@ -1,5 +1,6 @@
 \chapter{Sistemi di Equazioni Lineari}
 
+\section{Introduzione}
 Un \textcolor{orange}{sistema lineare} è un particolare tipo di problema diretto in cui la funzione \textcolor{orange}{$F$}
 è definita come:
 \[\textcolor{orange}{F(x, d) = Ax - d}\]
@@ -58,7 +59,7 @@ Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono no
     $A$ ($\delta_A$) e ottenere risultati simili.
 \end{obs}
 
-\begin{subsection}{Esempi di metodi diretti}
+Vengono ora presentati alcuni esempi di sistemi lineari e dei metodi diretti per la loro risoluzione.
 
 \begin{example}[Matrice diagonale]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice diagonale, ovvero:
@@ -88,7 +89,7 @@ Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di s
 \end{example}
 
 
-\begin{section}{Metodi diretti per la soluzione di sistemi lineari}
+\section{Metodi diretti per la soluzione di sistemi lineari}
 Molti dei metodi numerici diretti utilizzano per la risoluzione dei sistemi lineari
 una \textcolor{orange}{fattorizzazione} della matrice \textcolor{orange}{$A$} nel prodotto 
 di due matrici \textcolor{orange}{$B$} e \textcolor{orange}{$C$}:
@@ -102,10 +103,10 @@ Fattorizzazioni diverse della matrice A sono associate a metodi di risoluzione
 del sistema diversi. \\
 Noi vedremo le seguenti fattorizzazioni:
 \begin{enumerate}
-\item \textcolor{orange}{Fattorizzazione LU}: $$A = LU$$ dove $L$ è una matrice triangolare inferiore e $U$ è una matrice triangolare superiore.
-\item \textcolor{orange}{Fattorizzazione Cholesky}: $$A = LL^T$$ dove $L$ è una matrice triangolare inferiore.
+\item \textcolor{orange}{Fattorizzazione LU}: \[A = LU\] dove $L$ è una matrice triangolare inferiore e $U$ è una matrice triangolare superiore.
+\item \textcolor{orange}{Fattorizzazione Cholesky}: \[A = LL^T\] dove $L$ è una matrice triangolare inferiore.
  Questa fattorizzazione è applicabile solo se $A$ è simmetrica e definita positiva.
-\item \textcolor{orange}{Fattorizzazione QR}: $$A = QR$$ dove $Q$ è una matrice unitaria e $R$ è una matrice triangolare superiore.
+\item \textcolor{orange}{Fattorizzazione QR}: \[A = QR\] dove $Q$ è una matrice unitaria e $R$ è una matrice triangolare superiore.
 \end{enumerate}
 
 \begin{obs}
@@ -208,7 +209,7 @@ dove $m_{i1} = \frac{x_i}{x_1}$ per $i = 2, 3, \ldots, n$.
 \end{itemize}
 
 
-\begin{subsection}{Metodo di Gauss - Fattorizzazione LU}
+\subsection{Metodo di Gauss - Fattorizzazione LU}
 
 In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sistemi lineari.
 

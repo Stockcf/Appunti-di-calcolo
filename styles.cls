@@ -298,7 +298,7 @@
 % Series name and language
 %-------------------------------------------------------------------------------
 \newcommand\@series{}                               % Default series name (empty)
-\newcommand\@language{english}                  % Default language set to English
+\newcommand\@language{italian}                  % Default language set to Italian
 
 %-------------------------------------------------------------------------------
 % Placeholders for title components
