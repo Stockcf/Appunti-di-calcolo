@@ -1,4 +1,4 @@
-\chapter{Sistemi di Equazioni Lineari}
+\chapter{Metodi diretti per la soluzione di sistemi lineari}
 
 \section{Introduzione}
 Un \textcolor{orange}{sistema lineare} è un particolare tipo di problema diretto in cui la funzione \textcolor{orange}{$F$}
@@ -6,24 +6,36 @@ Un \textcolor{orange}{sistema lineare} è un particolare tipo di problema dirett
 \[\textcolor{orange}{F(x, d) = Ax - d}\]
 con $A \in \mathbb{R}^{n \times n}, x, d \in \mathbb{R}^n$.
 
-I metodi risolutivi per i sistemi lineari sono suddivisibili in due macro-categorie:
+I metodi risolutivi per i sistemi lineari sono suddivisibili
+in due macro-categorie:
 \begin{itemize}
-\item \textcolor{orange}{Metodi diretti}: forniscono la soluzione esatta in un numero finito di operazioni.
+\item \textcolor{orange}{Metodi diretti}: forniscono la soluzione esatta in un numero finito di operazioni.\\
+Sono metodi stabili, ma hanno un costo computazionale elevato.
 
 Esempi: eliminazione di Gauss, fattorizzazione LU, fattorizzazione Cholesky.
-\item \textcolor{orange}{Metodi iterativi}: forniscono una soluzione approssimata che converge alla soluzione esatta dopo un numero finito di iterazioni.
+\item \textcolor{orange}{Metodi iterativi}:non calcola la soluzione direttamente in un unico passo, ma 
+costruisce una successione di approssimazioni che si avvicinano sempre più alla soluzione esatta.\\
+Sono metodi più efficienti dal punto di vista computazionale, ma possono essere instabili e non garantire la convergenza.
 
 Esempi: metodo di Jacobi, metodo di Gauss-Seidel, metodo del gradiente coniugato.
 \end{itemize}
 
-In ogni caso però, qualunque metodo si usi, non si può prescindere dagli
-errori di rappresentazione dei dati e di arrotondamento nei calcoli.
+In ogni caso però, per entrambe le categorie, non si può prescindere dagli
+errori di rappresentazione e dalla loro propagazione nei calcoli.
 
-Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono non singolari (invertibili).
-\begin{theorem}
+Ad ogni modo noi ci concentreremo sullo studio dei metodi diretti.
+
+Come ci si può aspettare, la sensibilità di un problema diretto alle perturbazioni nei dati è strettamente legata alla matrice 
+$A$ che definisce il sistema lineare.
+
+Quando in futuro cercheremo di misurare la sensibilità di un sistema lineare, ci riferiremo al seguente teorema:
+\begin{theorem}{Numero di condizionamento di un sistema lineare}
     Data una \textcolor{orange}{norma  $\|\cdot\|$} su $\mathbb{R}^n$, sia \textcolor{orange}{$\|\cdot\|_m$} 
-    la norma indotta su $\mathbb{R}^{n \times n}$, il \textcolor{orange}{numero di condizionamento} di un
-    sistema lineare $\textcolor{orange}{Ax = b}$ è definito come:
+    la norma indotta su $\mathbb{R}^{n \times n}$.\\
+    Si consideri un sistema lineare \textcolor{orange}{$Ax = b$} con \textcolor{orange}{$A$} invertibile.
+
+    Il \textcolor{orange}{numero di condizionamento} del
+    sistema $\textcolor{orange}{Ax = b}$ è definito come:
     \[\textcolor{orange}{K(A) = \|A\|_m \|A^{-1}\|_m}\]
 \end{theorem}
 
@@ -59,9 +71,12 @@ Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono no
     $A$ ($\delta_A$) e ottenere risultati simili.
 \end{obs}
 
+
+Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono non singolari (invertibili).
+
 Vengono ora presentati alcuni esempi di sistemi lineari e dei metodi diretti per la loro risoluzione.
 
-\begin{example}[Matrice diagonale]
+\begin{example}[Matrici diagonali]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice diagonale, ovvero:
 \[A = \begin{bmatrix}
 a_{11} & 0 & \cdots & 0 \\
@@ -73,9 +88,9 @@ In questo caso, la soluzione del sistema è immediata e data da:
 \[x_i = \frac{b_i}{a_{ii}} \quad \text{per } i = 1, 2, \ldots, n\]
 \end{example}
 
-\begin{example}[Matrice triangolare]
+\begin{example}[Matrici triangolari]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice triangolare superiore, ovvero:
-\[A = \begin{bmatrix}
+\[U = \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
 0 & a_{22} & \cdots & a_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -85,22 +100,33 @@ In questo caso, la soluzione del sistema può essere trovata tramite il metodo d
 \[x_n = \frac{b_n}{a_{nn}}, \quad x_i = \frac{b_i - \sum_{j=i+1}^n a_{ij}x_j}{a_{ii}}\]
 
 Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di sostituzione in avanti ($forward \, solve$).: 
-\[x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}\]
+\[
+L =\begin{bmatrix}
+a_{11} & 0 & \cdots & 0 \\
+a_{21} & a_{22} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+\qquad
+x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}\]
 \end{example}
 
+\begin{obs}
+Nei prossimi paragrafi verranno utilizzate nuovamente le notazioni \textcolor{orange}{$U$} e \textcolor{orange}{$L$}
+per indicare rispettivamente una matrice triangolare superiore (dall'inglese \textcolor{orange}{"upper triangular"}) e una matrice triangolare inferiore (dall'inglese \textcolor{orange}{"lower triangular"}).
+\end{obs}
 
 \section{Metodi diretti per la soluzione di sistemi lineari}
 Molti dei metodi numerici diretti utilizzano per la risoluzione dei sistemi lineari
 una \textcolor{orange}{fattorizzazione} della matrice \textcolor{orange}{$A$} nel prodotto 
 di due matrici \textcolor{orange}{$B$} e \textcolor{orange}{$C$}:
 \textcolor{orange}{\[A = BC\]}
-La soluzione del sistema viene trovata risolvendo i due sistemi lineari:
+La soluzione del sistema viene trovata risolvendo in successione i due sistemi lineari ausiliari:
 \[
-By = b \quad \text{e} \quad Cx = y
+\textcolor{orange}{Ax = b \quad \Leftrightarrow \quad By = b, \, Cx = y}
 \]
 
-Fattorizzazioni diverse della matrice A sono associate a metodi di risoluzione
-del sistema diversi. \\
+Fattorizzazioni diverse della matrice A sono associate a metodi risolutivi diversi. \\
 Noi vedremo le seguenti fattorizzazioni:
 \begin{enumerate}
 \item \textcolor{orange}{Fattorizzazione LU}: \[A = LU\] dove $L$ è una matrice triangolare inferiore e $U$ è una matrice triangolare superiore.
@@ -110,14 +136,14 @@ Noi vedremo le seguenti fattorizzazioni:
 \end{enumerate}
 
 \begin{obs}
-La lettera \textcolor{orange}{$L \, (R)$} è spesso utilizzata per indicare una matrice triangolare inferiore (superiore) perchè è l'abbreviazione
- di \textcolor{orange}{$Lower \, (right \, o \, Upper)$}.
+La lettera \textcolor{orange}{$R$} è spesso utilizzata per indicare una matrice triangolare superiore perchè è sinonimo in inglese
+di \textcolor{orange}{$right$} (una matrice triangolare superiore è sempre una matrice quadrata e ha elementi non nulli solo nella parte destra).
 \end{obs}
 
 \subsection{Matrici elementari}
 
-In questo paragrafo si introduce la classe delle matrici elementari e se
-ne analizzano le principali proprietà.
+In questo paragrafo si introduce un particolare tipo di matrice, chiamata \textcolor{orange}{matrice elementare}, che
+sarà fondamentale per studiare le fattorizzazioni.
 
 \begin{defi}[Matrice elementare]
 Siano \textcolor{orange}{$\sigma \epsilon \mathbb{R}$} e \textcolor{orange}{$u, v \in \mathbb{R}^n$} con \textcolor{orange}{$u, v \neq 0$}.
@@ -125,17 +151,22 @@ Siano \textcolor{orange}{$\sigma \epsilon \mathbb{R}$} e \textcolor{orange}{$u, 
 \[\textcolor{orange}{E = I - \sigma uv^T}\]
 \end{defi}
 
-La classe delle matrici elementari non singolari è chiusa rispetto all'ope
-razione di inversione. Vale infatti il seguente teorema.
+La classe delle matrici elementari non singolari (ovvero invertibili) è chiusa rispetto all'operazione di inversione.\\
+Vale infatti il seguente teorema.
 
-\begin{theorem}
-    Ogni matrice elementare \textcolor{orange}{$E(\sigma, u, v)$} per cui \textcolor{orange}{$\sigma v^T u \neq 1$} è $invertibile$
-     e la sua $matrice \, inversa$ è sempre una matrice elementare della forma:
-     \textcolor{orange}{\[E(\tau, u, v) \quad con \, \tau \in \mathbb{R}\]}
+\begin{theorem}[Inversione di una matrice elementare]
+    \label{teorema:inversione_elementare}
+    Ogni matrice elementare, \textcolor{orange}{$E(\sigma, u, v)$}, per cui valga la condizione:
+    \[ 
+    \textcolor{orange}{\sigma v^T u \neq 1}
+    \]
+    è \textcolor{orange}{invertibile} e la sua \textcolor{orange}{matrice inversa} è sempre una matrice elementare della forma:
+    \textcolor{orange}{\[E(\tau, u, v) \quad con \, \tau \in \mathbb{R}\]}
 \end{theorem}
 
 \begin{proof}
-    Se $\sigma = 0$ la tesi è ovvia.
+
+    Se $\sigma = 0$ la tesi è ovvia, in quanto $E(0, u, v) = I$.
     
     Supponiamo ora $\sigma \neq 0$. Vogliamo dimostrare che esista $\tau \in \mathbb{R}$ tale che:
     \[
@@ -155,12 +186,14 @@ razione di inversione. Vale infatti il seguente teorema.
     \]
     Risolvendo rispetto a $\tau$:
     \[
-    \tau = -\frac{\sigma}{1 - \sigma v^T u}
+    \tau = \frac{\sigma}{1 - \sigma v^T u}
     \]
     Da cui la condizione:
     \[\sigma v^T u \neq 1\]
 \end{proof}
 
+Introduciamo ora un'altra importante proprietà delle matrici elementari,
+ovvero la loro capacità di trasformare un vettore in un altro.\\
 Assegnati comunque due vettori non nulli, esiste sempre una matrice
 elementare non singolare che trasforma il primo vettore nel secondo. Vale
 infatti il seguente teorema.
@@ -173,15 +206,15 @@ infatti il seguente teorema.
 
 \begin{proof}
     La condizione $E(\sigma, u, v)x = y$ è equivalente a:
-    \[(I - \sigma uv^T)x = y\]
+    \[(I - \sigma uv^t)x = y\]
 Sviluppando:
-\[x - \sigma u(v^T x) = y\]
+\[x - \sigma u(v^t x) = y\]
 Da cui:
-\[\sigma u(v^T x) = x - y\]
+\[\sigma u(v^t x) = x - y\]
 Scegliendo $u = x - y$ e $v = x$, otteniamo:
-\[\sigma (x - y)(v^T x) = x - y\]
+\[\sigma (x - y)(v^t x) = x - y\]
 Da cui:
-\[\sigma = \frac{1}{v^T x} = \frac{1}{x^T x}\]
+\[\sigma = \frac{1}{v^t x} = \frac{1}{x^t x}\]
 \end{proof}
 
 Due classi di matrici elementari particolarmente importanti per i nostri scopi sono:
@@ -191,29 +224,65 @@ Due classi di matrici elementari particolarmente importanti per i nostri scopi s
 \[\ M = (\sigma, u, e_1) \quad per \, cui: \, Mx = x_1 e_1\]
 in cui $x \in \mathbb{R}^n, \, con \, x_1 \neq 0$.
 
-\begin{obs}
-    La matrice elementare di Gauss è quindi utilizzata per annullare le componenti di un vettore, ad eccezione della prima.
-\end{obs}
-Per costruire una matrice elementare di Gauss che annulli le componenti di un vettore $x$ ad eccezione della prima, possiamo scegliere:
-\[
+La matrice elementare di Gauss è quindi utilizzata per annullare le componenti di un vettore, ad eccezione della prima.
+
+Possiamo pensare alla matrice come:
+\textcolor{orange}{\[
 M =
 \begin{pmatrix}
 1 &  &  &  \\
 -m_{21} & 1 &  & \\
 \vdots & & \ddots &  \\
 -m_{n1} &  &  & 1
-\end{pmatrix}
-\]
-dove $m_{i1} = \frac{x_i}{x_1}$ per $i = 2, 3, \ldots, n$.
+\end{pmatrix} \qquad m_{i1} = \frac{x_i}{x_1} \, per \, i = 2, 3, \ldots, n
+\]}
 
+La matrice elementare di Gauss è sempre invertibile e la sua matrice inversa è anch'essa una matrice elementare di Gauss, ovvero:
+\textcolor{orange}{\[
+M^{-1} = (\sigma, -u, e_1)= \begin{pmatrix}
+1 &  &  &  \\
+m_{21} & 1 &  & \\
+\vdots & & \ddots &  \\
+m_{n1} &  &  & 1
+\end{pmatrix}
+\]}
+
+\item \textcolor{orange}{Matrice elementare di Householder}: è una matrice elementare della forma:
+\[
+P = (\beta, \textbf{v}, \textbf{v})
+\]
+con $\textbf{v} \in \mathbb{R}^n$ e $\beta \in \mathbb{R}$ scelti in modo tale che
+la matrice $P$ sia $unitaria \, (P^{-1} = P^t \, e \, \det(P) = 1)$.
+
+Dal teorema (\ref{teorema:inversione_elementare}), si ha che $P$ è invertibile
+se e solo se la condizione $\beta \textbf{v}^t \textbf{v} \neq 1$ è soddisfatta.
+
+Le matrici di Householder sono anche dette \textcolor{orange}{$"riflessioni \, di \, Householder"$}
+perchè rappresentano una riflessione rispetto al piano ortogonale al vettore $\textbf{v}$.
+
+Infatti, sia $\textbf{w}$ ilo versore di $\textbf{v}$, ovvero $\textbf{w} = \frac{\textbf{v}}{\|\textbf{v}\|}$
+ed $\textbf{x} \in \mathbb{R}^n$ un vettore qualsiasi, si ha:
+\[
+P\textbf{x} = \textbf{x} - \beta \textbf{v}(\textbf{v}^t \textbf{x})
+\]
+dove $\beta \textbf{v}^t \textbf{x}\textbf{v} = \gamma\textbf{v}$ rappresenta la proiezione di $\textbf{x}$ sul vettore $\textbf{v}$, e quindi $P\textbf{x}$ rappresenta la riflessione di $\textbf{x}$ rispetto al piano ortogonale a $\textbf{v}$.
+
+
+\begin{figure}[h!!!]
+\centering
+\includegraphics[width=0.8\textwidth]{Chapters/ch02/figure/riflessione_householder.png}
+\end{figure}
 \end{itemize}
 
+.....
 
-\subsection{Metodo di Gauss - Fattorizzazione LU}
+\section{Metodo di Gauss - Fattorizzazione LU}
 
 In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sistemi lineari.
 
-\begin{theorem}
+Partiamo con l'enunciare un teorema fondamentale che ci permetterà di costruire la fattorizzazione LU.
+
+\begin{theorem}[Fattorizzazione di matrici quadrate]
     Si può sempre \textcolor{orange}{fattorizzare} una matrice $A \in \mathbb{R}^{n \times n}$ in un prodotto di due matrici $E$ ed $U$,
     dove $E$ è un prodotto di matrici elementari e $U$ è una matrice triangolare superiore:
     \[\textcolor{orange}{A = EU}\]
@@ -284,9 +353,40 @@ In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sis
 \end{proof}
 
 \begin{defi}[Metodo (di eliminazione) di Gauss - Fattorizzazione LU]
-    Viene detto \textcolor{orange}{metodo di Gauss} o \textcolor{orange}{fattorizzazione LU} il metodo diretto per la risoluzione di 
-    sistemi lineari che si basa sulla fattorizzazione: 
-    \[\textcolor{orange}{A = LU}\]
-    dove $L$ è un prodotto di matrici elementari di Gauss e $U$ è una matrice triangolare superiore.
+   Viene detto \textcolor{orange}{metodo (di eliminazione) di Gauss} o \textcolor{orange}{fattorizzazione LU} il procedimento
+   descritto nella dimostrazione precedente quando la matrice \textcolor{orange}{$E$} è un
+   prodotto di \textcolor{orange}{matrici elementari di Gauss}, ovvero:
+   \textcolor{orange}{\[
+   E^{(k)} = \begin{bmatrix}
+    I & \mathbf{0}\\
+    \mathbf{0} & M^{(k)}
+   \end{bmatrix} =
+   \begin{bmatrix}
+    1 & \\
+    & \ddots \\
+    & & 1 \\
+    & & -m_{k+1,k} & 1 \\
+    & & \vdots & & \ddots \\
+    & & -m_{nk} & & & 1
+   \end{bmatrix}
+    \]}
+    Dove $M^{(k)}$ è una matrice elementare di Gauss di ordine $n-k+1$ ($M^{(k)} \in \mathbb{R}^{(n-k+1) \times (n-k+1)}$).
+
+    Da cui si trova (ricordando che la classe delle matrici elementari non singolari è chiusa rispetto all'operazione di inversione):
+    \textcolor{orange}{\[
+    L = E^{-1} \dots E^{(n-1)^{-1}} = \begin{bmatrix}
+    1 & \\
+    m_{21} & \ddots \\
+    \vdots &  \ddots & 1\\
+    \vdots & &  m_{k+1,k} & \ddots \\
+    \vdots & &  \vdots & \ddots & \ddots\\
+    m_{n1} & \dots &  m_{nk} & \dots & m_{(n-1)n} & 1
+    \end{bmatrix}
+    \]}
+    dove \textcolor{orange}{\[
+    m_{ik} = \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}
+    \]}
+    con $i = k+1, k+2, \ldots, n$ e $k = 1, 2, \ldots, n-1$.
 \end{defi}
 
+\section{Fattorizzazione QR}

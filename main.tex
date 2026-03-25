@@ -6,7 +6,7 @@
 \usepackage{lipsum}
 
 % -- Book Data
-\bookauthor[R. Castagni Fabbri]{R. Castagni Fabbri}
+\bookauthor{R}
 \booktitle{Appunti di Calcolo Numerico}
 \subtitle[:]{Università di Pisa - Ingegneria dell'energia AA 25/26}
 
@@ -24,9 +24,33 @@
 
 \mainmatter  % Main content
 
+\chapter*{Prefazione}
+Per studiare un “fenomeno”, sia esso naturale quale il moto di un pianeta o sia
+esso un prodotto umano quale il propagarsi dell'inquinamento atmosferico o la
+costruzione di un ponte, la matematica fornisce strumenti per realizzare ed analiz
+zare dei $modelli$ che descrivono, tenendo conto delle varie $approssimazioni$, il fenomeno stesso.
+
+Generalmente un modello matematico è un $modello \, continuo$ (di solito un si
+stema di equazioni differenziali) che consente di individuare le proprietà qualitative
+della soluzione, come esistenza, unicità, regolarità, ecc., ma spesso non permette di
+determinare analiticamente la soluzione. \' E perciò necessario effettuare un'ulteriore
+approssimazione sostituendo il modello continuo con un $modello \, discreto$ (processo di
+discretizzazione).
+
+
+\'E ovvio che nella discretizzazione si introducono degli $errori$ dovuti principalmente a due fattori:
+\begin{itemize}
+\item \textbf{Rappresentazione dei dati}: i calcolatori rappresentano i numeri con un numero finito di cifre.
+\item \textbf{Operazioni aritmetiche}: le operazioni aritmetiche sui numeri rappresentati con un numero finito di cifre introducono errori di arrotondamento.
+\end{itemize}
+
+Gli errori di rappresentazione dei dati e gli errori prodotti dalle singole ope
+razioni si propagano nel corso dei calcoli e generano nella soluzione effettivamente
+calcolata degli errori che vengono chiamati rispettivamente $errore \, inerente$ ed $errore \, algoritmico$.
+
 % -- Include Chapters
 \include{Chapters/ch01/chapter01}  % Chapter 1: Introduzione
 \include{Chapters/ch02/chapter02}  % Chapter 2: Sistemi di Equazioni Lineari
-\include{Chapters/ch03/chapter03}  % Chapter 3: Appendice
+\include{Chapters/appendice/appendice}  %Appendice
 
 \end{document}

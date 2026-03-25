@@ -547,22 +547,6 @@
             
             % Decorative Lines Below Title
             {\color{colorp}\rule{0.6\textwidth}{0.4pt}}\\[0.7\baselineskip]     % Draw a thin colored line with height 0.4pt
-            
-            % Fill space before logos
-            \vfill
-            \ifthenelse{\equal{\@logosecond}{}}{                  % Check if \@logosecond is empty (i.e., no second logo)
-                \includegraphics[width=\@lclogofirst]{\@logofirst}  % If only one logo is provided, include the first logo with specified width
-            }{                                                    % Else, if a second logo is provided
-                {   % Begin a group for including both logos side by side
-                    \raisebox{-0.5\height}{%                    % Adjust the vertical position of the first logo
-                        \includegraphics[width=\@lclogofirst]{\@logofirst}%
-                    }%
-                    \hspace{0.08\textwidth}                      % Add horizontal space of 8% of the text width between the two logos
-                    \raisebox{-0.5\height}{%                    % Adjust the vertical position of the second logo
-                        \includegraphics[width=\@lclogosecond]{\@logosecond}%
-                    }%                                            % End of second logo inclusion
-                }   % End of group for logos
-            }                                                    % End of \ifthenelse for logos
             \par\vspace*{0.001\textheight}                        % Add a minuscule vertical space after the logos
         \endgroup                                                % End of the local group, reverting any local changes
     \end{spacing}                                                % End of the spacing environment for the title page
