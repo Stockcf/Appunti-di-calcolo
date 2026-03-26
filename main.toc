@@ -6,6 +6,9 @@
 \contentsline {section}{\numberline {2.1}Introduzione}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Metodi diretti per la soluzione di sistemi lineari}{8}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Matrici elementari}{8}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Metodo di Gauss - Fattorizzazione LU}{11}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Fattorizzazione QR}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {2.2.2}Fattorizzazione di matrici}{11}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Metodo di eliminazione di Gauss}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Pivoting parziale e totale}{17}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Fattorizzazione di Gauss Jordan}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Fattorizzazione QR}{18}{section.2.5}%
 \contentsfinish 

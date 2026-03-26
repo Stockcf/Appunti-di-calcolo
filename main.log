@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  25 MAR 2026 19:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  26 MAR 2026 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1199,7 +1199,7 @@ Overfull \hbox (1.9804pt too wide) in paragraph at lines 260--262
 []\T1/ppl/m/n/10 Le ma-trici di House-holder sono an-che dette []$\OT1/ppl/m/n/10 "\OML/zplm/m/it/10 riflessioni di Householder\OT1/ppl/m/n/10 "$[] \T1/ppl/m/n/10 per-
  []
 
-<Chapters/ch02/figure/riflessione_householder.png, id=144, 397.485pt x 237.13594pt>
+<Chapters/ch02/figure/riflessione_householder.png, id=163, 397.485pt x 237.13594pt>
 File: Chapters/ch02/figure/riflessione_householder.png Graphic file (type png)
 <use Chapters/ch02/figure/riflessione_householder.png>
 Package pdftex.def Info: Chapters/ch02/figure/riflessione_householder.png  used on input line 273.
@@ -1207,28 +1207,60 @@ Package pdftex.def Info: Chapters/ch02/figure/riflessione_householder.png  used 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[11]
+Underfull \vbox (badness 3758) has occurred while \output is active []
 
-Overfull \hbox (3.11658pt too wide) in paragraph at lines 283--284
-[]\T1/ppl/m/n/10 Partiamo con l'enunciare un teo-rema fon-da-men-tale che ci per-me-t-terà di costru-
- []
-
-[11] [12 <./Chapters/ch02/figure/riflessione_householder.png>]
-Overfull \hbox (1.98987pt too wide) in paragraph at lines 323--325
+ [12 <./Chapters/ch02/figure/riflessione_householder.png>]
+Overfull \hbox (1.98987pt too wide) in paragraph at lines 322--324
 \T1/ppl/m/n/10 Definiamo ora la ma-trice el-e-mentare (ne viene evi-tata la di-mostrazione) $\OML/zplm/m/it/10 E[]$ \T1/ppl/m/n/10 come: 
  []
 
 
-Overfull \hbox (13.99612pt too wide) detected at line 341
+Overfull \hbox (13.99612pt too wide) detected at line 340
 \OML/zplm/m/it/10 A[] \OT1/zplm/m/n/10 = \OML/zplm/m/it/10 E[]A[] \OT1/zplm/m/n/10 = [] = [] = []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]) [14]
+ [13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 555--557
+
+ []
+
+[17]
+Overfull \hbox (1.70232pt too wide) in paragraph at lines 587--588
+[]\T1/ppl/m/it/10 Dopo l'applicazione della per-mu-tazione $\OML/zplm/m/it/10 P[]$\T1/ppl/m/it/10 , la nuova ma-trice $\OML/zplm/m/it/10 A[]$ \T1/ppl/b/it/10 sos-ti-tu-isce \T1/ppl/m/it/10 quella
+ []
+
+
+Overfull \hbox (9.9461pt too wide) in paragraph at lines 589--590
+[]\T1/ppl/m/n/10 È ev-i-dente che il \T1/ppl/b/n/10 piv-ot-ing to-tale\T1/ppl/m/n/10 , dovendo cer-care il mas-simo as-so-luto nell'intero
+ []
+
+
+Overfull \hbox (14.05579pt too wide) in paragraph at lines 591--592
+\T1/ppl/m/n/10 con-trol-lando meglio la crescita degli el-e-menti in-ter-medi e riducendo l'amplificazione
+ []
+
+
+Overfull \hbox (14.90587pt too wide) in paragraph at lines 605--607
+[] [] \T1/ppl/b/n/10 Ob-ser-va-tion . []\T1/ppl/m/it/10 Soli-ta-mente si evita di im-ple-mentare il metodo di Gauss-Jordan perche'non
+ []
+
+) [18]
 \openout2 = `Chapters/appendice/appendice.aux'.
 
- (./Chapters/appendice/appendice.tex) [15
+ (./Chapters/appendice/appendice.tex) [19
 
 
 
@@ -1238,21 +1270,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7A9385C5B4170B256022344FBE9363BF;2071.
+(rerunfilecheck)             Checksum: A136CA57A8F0D39E3DA500FBFD3CF374;2661.
  ) 
 Here is how much of TeX's memory you used:
- 45037 strings out of 467525
- 1018994 string characters out of 5423209
- 1664343 words of memory out of 5000000
- 73062 multiletter control sequences out of 15000+600000
- 684761 words of font info for 138 fonts, out of 8000000 for 9000
+ 45064 strings out of 467525
+ 1019407 string characters out of 5423209
+ 1672525 words of memory out of 5000000
+ 73077 multiletter control sequences out of 15000+600000
+ 686357 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,15n,131p,854b,1080s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (17 pages, 163612 bytes).
+ 110i,15n,131p,854b,1096s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (21 pages, 194834 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

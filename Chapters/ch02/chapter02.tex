@@ -155,7 +155,7 @@ La classe delle matrici elementari non singolari (ovvero invertibili) è chiusa 
 Vale infatti il seguente teorema.
 
 \begin{theorem}[Inversione di una matrice elementare]
-    \label{teorema:inversione_elementare}
+\label{teorema:inversione_elementare}
     Ogni matrice elementare, \textcolor{orange}{$E(\sigma, u, v)$}, per cui valga la condizione:
     \[ 
     \textcolor{orange}{\sigma v^T u \neq 1}
@@ -276,13 +276,12 @@ dove $\beta \textbf{v}^t \textbf{x}\textbf{v} = \gamma\textbf{v}$ rappresenta la
 
 .....
 
-\section{Metodo di Gauss - Fattorizzazione LU}
+\subsection{Fattorizzazione di matrici}
 
-In questo paragrafo si introduce la fattorizzazione LU per la risoluzione di sistemi lineari.
-
-Partiamo con l'enunciare un teorema fondamentale che ci permetterà di costruire la fattorizzazione LU.
+In questo paragrafo si introduce un teorema fondamentale per la fattorizzazione di matrici quadrate, che sarà alla base di molti metodi diretti per la risoluzione di sistemi lineari.
 
 \begin{theorem}[Fattorizzazione di matrici quadrate]
+    \label{teorema:fatt_matrici_quadrate}
     Si può sempre \textcolor{orange}{fattorizzare} una matrice $A \in \mathbb{R}^{n \times n}$ in un prodotto di due matrici $E$ ed $U$,
     dove $E$ è un prodotto di matrici elementari e $U$ è una matrice triangolare superiore:
     \[\textcolor{orange}{A = EU}\]
@@ -352,9 +351,14 @@ Partiamo con l'enunciare un teorema fondamentale che ci permetterà di costruire
     Da cui la tesi.
 \end{proof}
 
+%===============================================================================
+%In questa sezione vediamo alcuni metodi per la fattorizzazione LU.
+%===============================================================================
+\section{Metodo di eliminazione di Gauss} 
+
 \begin{defi}[Metodo (di eliminazione) di Gauss - Fattorizzazione LU]
    Viene detto \textcolor{orange}{metodo (di eliminazione) di Gauss} o \textcolor{orange}{fattorizzazione LU} il procedimento
-   descritto nella dimostrazione precedente quando la matrice \textcolor{orange}{$E$} è un
+   descritto nella dimostrazione del teorema (\ref{teorema:fatt_matrici_quadrate}) quando la matrice \textcolor{orange}{$E$} è un
    prodotto di \textcolor{orange}{matrici elementari di Gauss}, ovvero:
    \textcolor{orange}{\[
    E^{(k)} = \begin{bmatrix}
@@ -389,4 +393,216 @@ Partiamo con l'enunciare un teorema fondamentale che ci permetterà di costruire
     con $i = k+1, k+2, \ldots, n$ e $k = 1, 2, \ldots, n-1$.
 \end{defi}
 
+\begin{example}[Fattorizzazione LU di una matrice $4 \times 4$]
+Consideriamo il sistema lineare $Ax = b$ con:
+\[
+A =
+\begin{bmatrix}
+-2 & 4 & -1 & -1 \\
+4 & -9 & 0 & 5 \\
+-4 & 5 & -5 & 5 \\
+-8 & 8 & -23 & 20
+\end{bmatrix}
+\qquad
+b =
+\begin{bmatrix}
+12 \\
+-32 \\
+3 \\
+-13
+\end{bmatrix}
+\]
+Applichiamo il metodo di Gauss per risolvere il sistema.
+
+Si pone:
+\[
+A^{(1)} = A
+\]
+Si costruiscono le matrici elementari di Gauss $E^{(k)}$.
+
+\bigskip
+
+\textbf{Primo passo:}
+\[
+E^{(1)} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+2 & 1 & 0 & 0 \\
+-2 & 0 & 1 & 0 \\
+-4 & 0 & 0 & 1
+\end{bmatrix}
+\]
+\[
+A^{(2)} = E^{(1)} A^{(1)} =
+\begin{bmatrix}
+-2 & 4 & -1 & -1 \\
+0 & -1 & -2 & 3 \\
+0 & -3 & -3 & 7 \\
+0 & -8 & -19 & 24
+\end{bmatrix}
+\]
+
+\textbf{Secondo passo:}
+\[
+E^{(2)} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & -3 & 1 & 0 \\
+0 & -8 & 0 & 1
+\end{bmatrix}
+\]
+\[
+A^{(3)} = E^{(2)} A^{(2)} =
+\begin{bmatrix}
+-2 & 4 & -1 & -1 \\
+0 & -1 & -2 & 3 \\
+0 & 0 & 3 & -2 \\
+0 & 0 & -3 & 0
+\end{bmatrix}
+\]
+
+\textbf{Terzo passo:}
+\[
+E^{(3)} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 1
+\end{bmatrix}
+\]
+\[
+U = A^{(4)} = E^{(3)} A^{(3)} =
+\begin{bmatrix}
+-2 & 4 & -1 & -1 \\
+0 & -1 & -2 & 3 \\
+0 & 0 & 3 & -2 \\
+0 & 0 & 0 & -2
+\end{bmatrix}
+\]
+
+Abbiamo quindi ottenuto la fattorizzazione $A = LU$ con:
+\[
+U =
+\begin{bmatrix}
+-2 & 4 & -1 & -1 \\
+0 & -1 & -2 & 3 \\
+0 & 0 & 3 & -2 \\
+0 & 0 & 0 & -2
+\end{bmatrix}
+\]
+\[
+L =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+-2 & 1 & 0 & 0 \\
+2 & 3 & 1 & 0 \\
+4 & 8 & -1 & 1
+\end{bmatrix}
+\]
+Implementando ora la risoluzione dei sistemi lineari ausiliari $Ly = b$ e $Ux = y$, otteniamo:
+\[y =
+\begin{bmatrix}12 \\
+-8 \\
+-9 \\
+-4
+\end{bmatrix}
+\qquad
+x = \begin{bmatrix}-1 \\
+-2 \\
+-3 \\
+2
+\end{bmatrix}
+\]
+Dove, ricordando che $L$ ed $U$ sono rispettivamente una matrice triangolare inferiore ed una matrice triangolare superiore,
+abbiamo utilizzato il metodo di sostituzione in avanti ($forward \, solve$) per risolvere $Ly = b$ e il metodo di sostituzione 
+all'indietro ($backward \, solve$) per risolvere $Ux = y$.
+\end{example}
+
+
+Come si può intuire, non è sempre possibile fattorizzare una matrice $A$ in un prodotto $LU$ senza dover effettuare alcuna "modifica" alla matrice $A$ stessa.
+
+Ad esempio, se la matrice $A$ ha un elemento nullo sulla diagonale principale, risulta evidente che sia impossibile annullare le componenti di una colonna utilizzando una matrice elementare di Gauss, in quanto si avrebbe una divisione per zero:
+\[m_{ik} = \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}\]
+
+%teorema di esistenza ed unicità della fattorizzazione LU
+\begin{theorem}[esistenza ed unicità della fattorizzazione LU]
+    \label{teorema:esistenza_unicità_LU}
+    Sia $A \in \mathbb{R}^{n \times n}$ una matrice quadrata e siano \textcolor{orange}{$A^{(k)}$} le sue \textcolor{orange}{sottomatrici principali di testa} di ordine $k$.
+
+    Se $A^{(k)}$ è \textcolor{orange}{invertibile} per ogni $k = 1, 2, \ldots, n-1$, allora esiste ed è unica la fattorizzazione $LU$ di $A$.
+\end{theorem}
+
+\subsection{Pivoting parziale e totale}
+
+La condizione richiesta dal teorema~\ref{teorema:esistenza_unicità_LU} (tutti i minori principali invertibili) è \textbf{difficile da verificare a priori}, specialmente per matrici di grande dimensione.
+
+Per questo motivo, nell'implementazione pratica del metodo di Gauss si utilizzano due tecniche dette:
+\textcolor{orange}{pivoting parziale} e \textcolor{orange}{pivoting totale}.  
+Queste strategie garantiscono sempre l'applicabilità della fattorizzazione, evitando divisioni per zero o per numeri troppo piccoli (che amplificano gli errori numerici).
+
+Il concetto è semplice e intuitivo: se l'elemento \textcolor{orange}{$a_{kk}^{(k)}$} (pivot) è nullo o molto piccolo, non si può procedere con l'eliminazione.  
+La soluzione naturale consiste nello \textcolor{orange}{scambiare righe} (e talvolta colonne) per portare un elemento sufficientemente grande in posizione pivot.
+
+Vediamo ora in dettaglio come funzionano e in che modo si differenziano i due metodi.
+
+\begin{defi}[Pivoting parziale e totale]
+    \label{def:pivoting_parziale}
+    \begin{itemize}
+        \item \textcolor{orange}{\textbf{Pivoting parziale:}}
+        
+        consiste nell'effettuare una \textcolor{orange}{permutazione} delle righe di \textcolor{orange}{$A^{(k)}$}
+        per portare l'elemento di massimo modulo della colonna $k$ in posizione \textcolor{orange}{$(k,k)$}.\\[0.5em]   
+        \item \textcolor{orange}{\textbf{Pivoting totale:}}
+        
+        consiste nell'effettuare \textcolor{orange}{permutazioni} sia di righe che di colonne
+        di ogni matrice \textcolor{orange}{$A^{(k)}$}, scegliendo il massimo assoluto nel blocco \textcolor{orange}{$i,j \geq k$}.
+    \end{itemize}
+    
+    \textcolor{orange}{In simboli (pivoting parziale):}
+    \[
+    \textcolor{orange}{A^{(k)} = P_k^{(k)} A^{(k)}}
+    \]
+    dove \textcolor{orange}{$P_k^{(k)}$} è la matrice di permutazione che scambia le righe $k$ ed $\ell$:
+    \[
+    \textcolor{orange}{(P_{k,\ell})_{ij} =
+    \begin{cases}
+        1 & \text{se } i = j < k \text{ o } i = j > \ell \\
+        1 & \text{se } (i,j) = (k,\ell) \text{ o } (i,j) = (\ell,k) \\
+        0 & \text{altrimenti}
+    \end{cases}}
+    \]
+    
+    Alla fine si ottiene la fattorizzazione:
+    \[
+    \textcolor{orange}{\Pi A = LU} \quad con \textcolor{orange}{ \quad 
+    \Pi = (P_{n-1}^{(n-1)} \cdots P_1^{(1)})^{-1}}
+    \]
+\end{defi}
+
+\begin{obs}
+    Il simbolo $=$ nella formula  $\textcolor{orange}{A^{(k)} = P_k^{(k)} A^{(k)}}$ è usato in senso "operativo", come nell'informatica.
+
+    Dopo l'applicazione della permutazione $P^{(k)}$, la nuova matrice $A^{(k)}$ \textbf{sostituisce} quella precedente nei passi successivi dell'algoritmo.
+\end{obs}
+È evidente che il \textbf{pivoting totale}, dovendo cercare il massimo assoluto nell'intero blocco sottodiagonale, ha un \textbf{costo computazionale maggiore} rispetto al pivoting parziale.
+
+Tuttavia, il pivoting totale offre una maggiore garanzia di stabilità numerica, controllando meglio la crescita degli elementi intermedi e riducendo l'amplificazione degli errori di arrotondamento.
+\section{Fattorizzazione di Gauss Jordan}
+Il \textcolor{orange}{metodo di Gauss-Jordan} costituisce una variante del \textcolor{orange}{metodo di Gauss} in cui, oltre all'eliminazione degli elementi \textbf{sotto} la diagonale principale,
+si procede anche all'annullamento degli elementi \textbf{sopra} la diagonale principale.
+
+Questo processo porta direttamente alla matrice \textbf{identità}, trasformando il sistema $Ax=b$ nella forma risolta $x = A^{-1}b$.
+
+Alla fine si ottiene la fattorizzazione:
+\[
+\textcolor{orange}{A = LU} \quad con \textcolor{orange}{ \quad U = A^{(n)}}
+\]
+Dove \textcolor{orange}{$A^{(n)}$} è una matrice \textcolor{orange}{diagonale}.
+
+\begin{obs}
+Solitamente si evita di implementare il metodo di Gauss-Jordan perche'non offre una maggiore stabilità numerica rispetto al metodo di Gauss
+(oltre ad avere un costo computazionale elevato).
+\end{obs}
 \section{Fattorizzazione QR}

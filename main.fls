@@ -664,6 +664,9 @@ INPUT c:/texlive/2026/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/vf/adobe/palatino/pplri7t.vf
+INPUT c:/texlive/2026/texmf-dist/fonts/tfm/adobe/palatino/pplbi8t.tfm
+INPUT c:/texlive/2026/texmf-dist/fonts/vf/adobe/palatino/pplbi8t.vf
+INPUT c:/texlive/2026/texmf-dist/fonts/tfm/adobe/palatino/pplbi8r.tfm
 INPUT ./Chapters/appendice/appendice.tex
 INPUT ./Chapters/appendice/appendice.tex
 OUTPUT Chapters/appendice/appendice.aux
@@ -683,11 +686,13 @@ INPUT Chapters/appendice/appendice.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
+INPUT c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
