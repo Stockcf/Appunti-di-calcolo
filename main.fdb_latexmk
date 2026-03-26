@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1774532249.73281 "c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex" "main.pdf" "main" 1774532252.05517 0
-  "Chapters/appendice/appendice.aux" 1774532251 1333 a05542a5bdab9c6e9d86bd45c02e61a4 "pdflatex"
+["pdflatex"] 1774552015.23889 "c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex" "main.pdf" "main" 1774552017.68653 0
+  "Chapters/appendice/appendice.aux" 1774552017 1333 3e14d395422d113f65dab8a250e4c341 "pdflatex"
   "Chapters/appendice/appendice.tex" 1774461600 113 c2ab1a5d77891eccfe1cfe1e90200749 ""
-  "Chapters/ch01/chapter01.aux" 1774532251 1916 9c55dfd1531848aae7055a1a070ab223 "pdflatex"
-  "Chapters/ch01/chapter01.tex" 1774532237 5402 f862878feb4fe98f6aec887de6249ace ""
-  "Chapters/ch02/chapter02.aux" 1774532251 3014 5a8941212657dc851fc01e53c1f358b5 "pdflatex"
-  "Chapters/ch02/chapter02.tex" 1774532237 24298 24c8c134e49888267fc25f6629eeba22 ""
+  "Chapters/ch01/chapter01.aux" 1774552016 1916 9c55dfd1531848aae7055a1a070ab223 "pdflatex"
+  "Chapters/ch01/chapter01.tex" 1774543309 5401 88a7ed903c398ccdb9f184cffaf67339 ""
+  "Chapters/ch02/chapter02.aux" 1774552017 3545 acfde98d6c22aaa431293f2d98b3e32a "pdflatex"
+  "Chapters/ch02/chapter02.tex" 1774552014 25799 9a824a284f317680be9e31434b0a5851 ""
   "Chapters/ch02/figure/riflessione_householder.png" 1774459401 12446 bee1a748e85297ef36589c8015b2f05c ""
   "c:/Users/ricca/Desktop/II anno/Calcolo numerico/Appunti di calcolo/main.tex" 1774532246 2248 9c1cacac55982d4431c7f31160df7c04 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1773995109 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -318,10 +318,10 @@
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773998142 5619402 045890036aad9b52b154ef5568e59d3a ""
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773998286 3636416 9cb5bd96245ac12e0f59459eb8526b2f ""
   "c:/texlive/2026/texmf.cnf" 1773998122 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1774532251 366 83c152a48cfbb47501c1340e69a6e74d "pdflatex"
-  "main.out" 1774532251 2668 4baf303efc3ad586ae322f6f963a2a48 "pdflatex"
+  "main.aux" 1774552017 366 c3fdb173ad15197d26b4b3c638b442a4 "pdflatex"
+  "main.out" 1774552017 2668 4baf303efc3ad586ae322f6f963a2a48 "pdflatex"
   "main.tex" 1774532246 2248 9c1cacac55982d4431c7f31160df7c04 ""
-  "main.toc" 1774532251 1212 e5c255e864d1bcea8e0e9cd598cdf84e "pdflatex"
+  "main.toc" 1774552017 1212 230a93a2c584b7d9d11fa80183afbf6e "pdflatex"
   "styles.cls" 1774464531 81188 84a6ecb70b2ce5afe31b5a705fd616a7 ""
   (generated)
   "Chapters/appendice/appendice.aux"

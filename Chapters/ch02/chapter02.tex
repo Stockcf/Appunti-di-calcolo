@@ -29,7 +29,7 @@ Come ci si può aspettare, la sensibilità di un problema diretto alle perturbaz
 $A$ che definisce il sistema lineare.
 
 Quando in futuro cercheremo di misurare la sensibilità di un sistema lineare, ci riferiremo al seguente teorema:
-\begin{theorem}{Numero di condizionamento di un sistema lineare}
+\begin{theorem}[Numero di condizionamento di un sistema lineare]
     Data una \textcolor{orange}{norma  $\|\cdot\|$} su $\mathbb{R}^n$, sia \textcolor{orange}{$\|\cdot\|_m$} 
     la norma indotta su $\mathbb{R}^{n \times n}$.\\
     Si consideri un sistema lineare \textcolor{orange}{$Ax = b$} con \textcolor{orange}{$A$} invertibile.
@@ -142,8 +142,8 @@ di \textcolor{orange}{$right$} (una matrice triangolare superiore è sempre una 
 
 \subsection{Matrici elementari}
 
-In questo paragrafo si introduce un particolare tipo di matrice, chiamata \textcolor{orange}{matrice elementare}, che
-sarà fondamentale per studiare le fattorizzazioni.
+In questo paragrafo si introduce un particolare tipo di matrice, la \textcolor{orange}{matrice elementare}, che
+sarà fondamentale nello studio delle fattorizzazioni.
 
 \begin{defi}[Matrice elementare]
 Siano \textcolor{orange}{$\sigma \epsilon \mathbb{R}$} e \textcolor{orange}{$u, v \in \mathbb{R}^n$} con \textcolor{orange}{$u, v \neq 0$}.
@@ -154,14 +154,13 @@ Siano \textcolor{orange}{$\sigma \epsilon \mathbb{R}$} e \textcolor{orange}{$u, 
 La classe delle matrici elementari non singolari (ovvero invertibili) è chiusa rispetto all'operazione di inversione.\\
 Vale infatti il seguente teorema.
 
-\begin{theorem}[Inversione di una matrice elementare]
-\label{teorema:inversione_elementare}
+\begin{theorem}[Inversione di una matrice elementare]\label{teorema:inversione_elementare}
     Ogni matrice elementare, \textcolor{orange}{$E(\sigma, u, v)$}, per cui valga la condizione:
     \[ 
-    \textcolor{orange}{\sigma v^T u \neq 1}
+    \textcolor{orange}{\textbf{v}^t \textbf{u} \neq \frac{1}{\sigma}}
     \]
     è \textcolor{orange}{invertibile} e la sua \textcolor{orange}{matrice inversa} è sempre una matrice elementare della forma:
-    \textcolor{orange}{\[E(\tau, u, v) \quad con \, \tau \in \mathbb{R}\]}
+    \[\textcolor{orange}{E(\tau, u, v)} \quad \text{con} \quad \textcolor{orange}{\tau \in \mathbb{R}}\]
 \end{theorem}
 
 \begin{proof}
@@ -184,12 +183,12 @@ Vale infatti il seguente teorema.
     \[
     -(\sigma + \tau) + \sigma \tau (v^T u) = 0
     \]
-    Risolvendo rispetto a $\tau$:
-    \[
-    \tau = \frac{\sigma}{1 - \sigma v^T u}
-    \]
+    Da cui si ottiene che $\tau$ deve soddisfare la condizione:
+    \begin{equation}\label{eq.:cond_inv_elementare}
+        \textbf{v}^t \textbf{u} = \frac{1}{\sigma} + \frac{1}{\tau}
+    \end{equation}
     Da cui la condizione:
-    \[\sigma v^T u \neq 1\]
+    \[v^t u \neq \frac{1}{\sigma}\]
 \end{proof}
 
 Introduciamo ora un'altra importante proprietà delle matrici elementari,
@@ -219,6 +218,9 @@ Da cui:
 
 Due classi di matrici elementari particolarmente importanti per i nostri scopi sono:
 
+%==========================================================================
+%Matrici elementari di Houseolder e Gauss
+%==========================================================================
 \begin{itemize}
 \item \textcolor{orange}{Matrice elemenentare di Gauss}: è una matrice elementare della forma:
 \[\ M = (\sigma, u, e_1) \quad per \, cui: \, Mx = x_1 e_1\]
@@ -257,31 +259,51 @@ la matrice $P$ sia $unitaria \, (P^{-1} = P^t \, e \, \det(P) = 1)$.
 Dal teorema (\ref{teorema:inversione_elementare}), si ha che $P$ è invertibile
 se e solo se la condizione $\beta \textbf{v}^t \textbf{v} \neq 1$ è soddisfatta.
 
+Inoltre dato che $P^{-1} = P^t$, si ha che:
+\[
+    P^{-1} = P^t = (I - \beta \textbf{v} \textbf{v}^t)^t = I - \beta (\textbf{v} \textbf{v}^t)^t = I - \beta \textbf{v} \textbf{v}^t = P
+\]
+
 Le matrici di Householder sono anche dette \textcolor{orange}{$"riflessioni \, di \, Householder"$}
 perchè rappresentano una riflessione rispetto al piano ortogonale al vettore $\textbf{v}$.
 
-Infatti, sia $\textbf{w}$ ilo versore di $\textbf{v}$, ovvero $\textbf{w} = \frac{\textbf{v}}{\|\textbf{v}\|}$
-ed $\textbf{x} \in \mathbb{R}^n$ un vettore qualsiasi, si ha:
+Infatti, si consideri $\textbf{w}$ il versore di $\textbf{v}$, ovvero $\textbf{w} = \frac{\textbf{v}}{\|\textbf{v}\|}$
+ed $\textbf{x} \in \mathbb{R}^n$ un vettore qualsiasi.
+Dalla condizione (\ref{eq.:cond_inv_elementare}) su $\beta$ si ha:
 \[
-P\textbf{x} = \textbf{x} - \beta \textbf{v}(\textbf{v}^t \textbf{x})
+    P = I - \beta \textbf{v} \textbf{v}^t = I - 2 \frac{\textbf{v}^t \textbf{v}}{\|\textbf{v}\|^2} = I - 2 \textbf{w} \textbf{w}^t
 \]
-dove $\beta \textbf{v}^t \textbf{x}\textbf{v} = \gamma\textbf{v}$ rappresenta la proiezione di $\textbf{x}$ sul vettore $\textbf{v}$, e quindi $P\textbf{x}$ rappresenta la riflessione di $\textbf{x}$ rispetto al piano ortogonale a $\textbf{v}$.
+Siano ora $\gamma \in \mathbb{R}$ e $\textbf{y} \in S^{\perp}$ (con $S$ lo spazio generato da $\textbf{w}$) scelti in modo tale che:
+\[
+    x = \gamma \textbf{w} + \textbf{y}
+\]
+Si ottiene:
+\[
+    P\textbf{x} =
+    (I-2\textbf{w}\textbf{w}^t)(\gamma \textbf{w} + \textbf{y}) =
+    \gamma \textbf{w} + \textbf{y} -  2 \gamma \textbf{w} (\textbf{w}^t \textbf{w})  - 2 \textbf{w} (\textbf{w}^t \textbf{y})
+\]
+Sfruttando la perpendicolarità di $\textbf{w}$ rispetto a $S^{\perp}$ ($<\textbf{w}, \textbf{y}> =\textbf{w}^t \textbf{y} = 0$), si ha:
+\begin{equation}\label{eq.:vect_riflesso}
+    \gamma \textbf{w} + \textbf{y} -  2 \gamma \textbf{w} (\textbf{w}^t \textbf{w})  - 2 \textbf{w} (\textbf{w}^t \textbf{y}) =
+    -\gamma \textbf{w} + \textbf{y}
+\end{equation}
+La figura (\ref{fig.:vect_riflesso}) ci mostra graficamente che il vettore dell'equazione (\ref{eq.:vect_riflesso}) rappresenta 
+la riflessione del vettore \textbf{$x$} rispetto ad $S^{\perp}$.
 
-
-\begin{figure}[h!!!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{Chapters/ch02/figure/riflessione_householder.png}
+\caption{Riflessione del vettore \textbf{$x$} rispetto ad $S^{\perp}$}
+\label{fig.:vect_riflesso}
 \end{figure}
 \end{itemize}
-
-.....
 
 \subsection{Fattorizzazione di matrici}
 
 In questo paragrafo si introduce un teorema fondamentale per la fattorizzazione di matrici quadrate, che sarà alla base di molti metodi diretti per la risoluzione di sistemi lineari.
 
-\begin{theorem}[Fattorizzazione di matrici quadrate]
-    \label{teorema:fatt_matrici_quadrate}
+\begin{theorem}[Fattorizzazione di matrici quadrate]\label{teorema:fatt_matrici_quadrate}
     Si può sempre \textcolor{orange}{fattorizzare} una matrice $A \in \mathbb{R}^{n \times n}$ in un prodotto di due matrici $E$ ed $U$,
     dove $E$ è un prodotto di matrici elementari e $U$ è una matrice triangolare superiore:
     \[\textcolor{orange}{A = EU}\]

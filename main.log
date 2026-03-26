@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  26 MAR 2026 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.20)  26 MAR 2026 20:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1190,33 +1190,40 @@ Overfull \hbox (6.36696pt too wide) in paragraph at lines 15--16
 
 
 ] [6] [7] [8]
-Overfull \hbox (7.86607pt too wide) in paragraph at lines 195--200
+Overfull \hbox (7.86607pt too wide) in paragraph at lines 194--199
 []\T1/ppl/m/n/10 Introduciamo ora un'altra im-por-tante pro-pri-età delle ma-trici el-e-men-tari, ovvero
  []
 
 [9] [10]
-Overfull \hbox (1.9804pt too wide) in paragraph at lines 260--262
+Overfull \hbox (1.9804pt too wide) in paragraph at lines 267--269
 []\T1/ppl/m/n/10 Le ma-trici di House-holder sono an-che dette []$\OT1/ppl/m/n/10 "\OML/zplm/m/it/10 riflessioni di Householder\OT1/ppl/m/n/10 "$[] \T1/ppl/m/n/10 per-
  []
 
-<Chapters/ch02/figure/riflessione_householder.png, id=163, 397.485pt x 237.13594pt>
+[11]
+<Chapters/ch02/figure/riflessione_householder.png, id=172, 397.485pt x 237.13594pt>
 File: Chapters/ch02/figure/riflessione_householder.png Graphic file (type png)
 <use Chapters/ch02/figure/riflessione_householder.png>
-Package pdftex.def Info: Chapters/ch02/figure/riflessione_householder.png  used on input line 273.
+Package pdftex.def Info: Chapters/ch02/figure/riflessione_householder.png  used on input line 296.
 (pdftex.def)             Requested size: 284.52864pt x 169.75352pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11]
-Underfull \vbox (badness 3758) has occurred while \output is active []
-
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 297.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 297.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 297.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 297.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 297.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 297.
  [12 <./Chapters/ch02/figure/riflessione_householder.png>]
-Overfull \hbox (1.98987pt too wide) in paragraph at lines 322--324
+Overfull \hbox (1.98987pt too wide) in paragraph at lines 344--346
 \T1/ppl/m/n/10 Definiamo ora la ma-trice el-e-mentare (ne viene evi-tata la di-mostrazione) $\OML/zplm/m/it/10 E[]$ \T1/ppl/m/n/10 come: 
  []
 
 
-Overfull \hbox (13.99612pt too wide) detected at line 340
+Overfull \hbox (13.99612pt too wide) detected at line 362
 \OML/zplm/m/it/10 A[] \OT1/zplm/m/n/10 = \OML/zplm/m/it/10 E[]A[] \OT1/zplm/m/n/10 = [] = [] = []
  []
 
@@ -1229,38 +1236,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
-Underfull \vbox (badness 1509) has occurred while \output is active []
-
- [16]
-Underfull \hbox (badness 10000) in paragraph at lines 555--557
+ [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 577--579
 
  []
 
 [17]
-Overfull \hbox (1.70232pt too wide) in paragraph at lines 587--588
+Overfull \hbox (1.70232pt too wide) in paragraph at lines 609--610
 []\T1/ppl/m/it/10 Dopo l'applicazione della per-mu-tazione $\OML/zplm/m/it/10 P[]$\T1/ppl/m/it/10 , la nuova ma-trice $\OML/zplm/m/it/10 A[]$ \T1/ppl/b/it/10 sos-ti-tu-isce \T1/ppl/m/it/10 quella
  []
 
 
-Overfull \hbox (9.9461pt too wide) in paragraph at lines 589--590
+Overfull \hbox (9.9461pt too wide) in paragraph at lines 611--612
 []\T1/ppl/m/n/10 È ev-i-dente che il \T1/ppl/b/n/10 piv-ot-ing to-tale\T1/ppl/m/n/10 , dovendo cer-care il mas-simo as-so-luto nell'intero
  []
 
 
-Overfull \hbox (14.05579pt too wide) in paragraph at lines 591--592
+Overfull \hbox (14.05579pt too wide) in paragraph at lines 613--614
 \T1/ppl/m/n/10 con-trol-lando meglio la crescita degli el-e-menti in-ter-medi e riducendo l'amplificazione
  []
 
-
-Overfull \hbox (14.90587pt too wide) in paragraph at lines 605--607
+[18]
+Overfull \hbox (14.90587pt too wide) in paragraph at lines 627--629
 [] [] \T1/ppl/b/n/10 Ob-ser-va-tion . []\T1/ppl/m/it/10 Soli-ta-mente si evita di im-ple-mentare il metodo di Gauss-Jordan perche'non
  []
 
-) [18]
+) [19]
 \openout2 = `Chapters/appendice/appendice.aux'.
 
- (./Chapters/appendice/appendice.tex) [19
+ (./Chapters/appendice/appendice.tex) [20
 
 
 
@@ -1273,18 +1277,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4BAF303EFC3AD586AE322F6F963A2A48;2668.
  ) 
 Here is how much of TeX's memory you used:
- 45064 strings out of 467525
- 1019417 string characters out of 5423209
- 1672525 words of memory out of 5000000
- 73077 multiletter control sequences out of 15000+600000
- 686357 words of font info for 140 fonts, out of 8000000 for 9000
+ 45105 strings out of 467525
+ 1019973 string characters out of 5423209
+ 1671701 words of memory out of 5000000
+ 73109 multiletter control sequences out of 15000+600000
+ 696060 words of font info for 170 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,15n,131p,854b,1096s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,15n,131p,854b,1084s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (21 pages, 194836 bytes).
+Output written on main.pdf (22 pages, 197040 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
