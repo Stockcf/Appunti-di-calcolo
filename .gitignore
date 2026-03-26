@@ -1,1 +1,46 @@
 /README.md
+# --- LaTeX build files ---
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# --- Intermediate files ---
+*.dvi
+*.xdv
+*.pdfsync
+
+# --- Editor-specific ---
+# VS Code
+.vscode/
+*.code-workspace
+
+# TeXShop
+*.texpadtmp
+
+# --- OS-specific ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Temporary directories ---
+_build/
+tmp/
+temp/
