@@ -1,5 +1,8 @@
-/README.md
-# --- LaTeX build files ---
+# ==============================================================
+# .gitignore per progetto LaTeX
+# ==============================================================
+
+# --- File di compilazione LaTeX ---
 *.aux
 *.bbl
 *.bcf
@@ -15,32 +18,27 @@
 *.lot
 *.nav
 *.snm
+*.vrb
 
-# --- Intermediate files ---
+# --- File intermedi ---
 *.dvi
 *.xdv
 *.pdfsync
 
-# --- Editor-specific ---
-# VS Code
+# --- Cache del pacchetto minted (evidenziazione codice) ---
+_minted-*/
+*.data.minted
+*.pyg
+
+# --- PDF generato (opzionale: rimuovi questa riga se vuoi committare il PDF) ---
+main.pdf
+
+# --- Editor ---
 .vscode/
 *.code-workspace
-
-# TeXShop
 *.texpadtmp
 
-# --- OS-specific ---
-# macOS
+# --- OS ---
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-
-# --- Temporary directories ---
-_build/
-tmp/
-temp/

@@ -107,3 +107,80 @@ Questa relazione è anche coerente con l'intuizione: la derivata misura proprio 
 
     L'approssimazione del numero di condizionamento assoluto segue da un ragionamento analogo.  
 \end{proof}
+
+\section{Metodi numerici}
+Come abbiamo già osservato, non è sempre possibile risolvere analiticamente un problema matematico.
+
+Per questo motivo, introduciamo il concetto di \textcolor{blue}{metodo numerico}.
+
+\begin{defi}[Metodo numerico]
+    Un \textcolor{blue}{metodo numerico} è una procedura di calcolo che serve a trovare una soluzione approssimata di un problema matematico,
+    soprattutto quando la soluzione esatta è difficile o impossibile da ottenere in forma analitica.
+
+    Un metodo numerico consiste in una \textcolor{blue}{successione} di \textcolor{blue}{problemi approssimati}:
+    \[
+        \textcolor{blue}{(1)_n \quad F_n(x_n, d_n) = 0}
+    \]
+    con \textcolor{blue}{$d_n \to d$} e \textcolor{blue}{$F_n$} \textit{approssima} \textcolor{blue}{$F$} quando $n \to \infty$.
+\end{defi}
+
+La nostra speranza è che, risolvendo i problemi approssimati, si riesca ad ottenere una successione di soluzioni approssimate \textcolor{blue}{$x_n$} che converga alla soluzione esatta \textcolor{blue}{$x$} del problema diretto originale.
+
+\begin{defi}[Convergenza di un metodo numerico]
+    Un metodo numerico è detto \textcolor{blue}{convergente} se l'errore \textcolor{blue}{$e_n$} associato al metodo
+    tende a zero quando $n$ tende all'infinito, ovvero se:
+    \[
+        \textcolor{blue}{\lim_{n \to \infty} e_n = \lim_{n \to \infty} \|x_n - x\| = 0}
+    \]
+\end{defi}
+
+\noindent\textcolor{red}{\faWarning\ \textbf{Attenzione.}} Da qui in poi supporremo di avere sempre a che fare con problemi diretti stabili e metodi numerici convergenti, altrimenti i risultati che otterremo potrebbero non essere validi.
+
+\begin{defi}[Consistenza di un metodo numerico]
+    Un metodo numerico è detto \textcolor{blue}{consistente} se:
+    \[
+        \textcolor{blue}{\lim_{n \to \infty} F_n(x, d) = F(x, d)}
+    \]
+    per ogni \textcolor{blue}{$x$} e \textcolor{blue}{$d \in \mathbb{D}_n$}.
+\end{defi}
+
+\begin{obs}
+    La consistenza di un metodo numerico ci assicura che l'errore di approssimazione tra l'operatore continuo originale $F$ e l'operatore discreto e approssimato $F_n$ tende a zero quando $n$ tende all'infinito:
+    \[
+        \textcolor{blue}{\lim_{n \to \infty} \|F_n(x, d) - F(x, d)\| = \|F_n(x, d)\| = 0}
+    \]
+\end{obs}
+
+In altre parole, la consistenza ci garantisce che il metodo numerico stia effettivamente approssimando il problema originale in modo sempre più accurato.
+
+\begin{defi}[Metodo fortemente consistente]
+    Un metodo numerico è detto \textcolor{blue}{fortemente consistente} se:
+    \[
+        \textcolor{blue}{\|F_n(x, d) - F(x, d)\| = O(\|x_n - x\|)}
+    \]
+\end{defi}
+
+\begin{obs}[Idea intuitiva]
+    La quantità
+    \[
+        r_n(x,d) := F_n(x,d)-F(x,d)
+    \]
+    misura il \textcolor{blue}{difetto di modello} introdotto dalla discretizzazione.
+
+    Dire che il metodo è fortemente consistente significa che questo difetto non è ``più grande'' dell'errore sulla soluzione:
+    \[
+        \|r_n(x,d)\| \le C\,\|x_n-x\| \qquad (n \text{ grande})
+    \]
+    per una costante $C>0$ indipendente da $n$.
+
+    In parole semplici: quando $x_n$ si avvicina a $x$, anche l'errore di consistenza si riduce almeno con lo stesso ordine. Quindi la discretizzazione è sufficientemente fedele al problema continuo e non ``rovina'' la qualità dell'approssimazione numerica.
+\end{obs}
+
+Introduciamo ora un teorema il cui contenuto è intuitivo e del quale solvoleremo la dimostrazione.
+
+\begin{theorem}[Teorema di Lax-Richtmyer (o Teorema di equivalenza)]
+    Se un metodo numerico di un problema stabile è consistente, allora è convergente:
+    \[
+        \textcolor{blue}{\text{consistenza} \leftrightarrow \text{convergenza}}
+    \]
+\end{theorem}

@@ -299,6 +299,74 @@ la riflessione del vettore \textbf{$x$} rispetto ad $S^{\perp}$.
 \end{figure}
 \end{itemize}
 
+
+Come abbiamo visto, le matrici di Householder rappresentano una riflessione rispetto al piano ortogonale al vettore $\mathbf{v}$.
+Quindi, dato un vettore $\mathbf{x}$, è sempre possibile costruire una matrice di Householder che riflette $\mathbf{x}$ in un vettore parallelo a $\mathbf{e}_1$
+ed arrivare in modo intuitivo alla tesi del seguente teorema.
+
+\begin{theorem}\label{teo:householder}
+    Per ogni vettore $\textbf{x} \in \mathbb{R}^n$, con $\textbf{x} \neq 0$, si può identificare una \textcolor{orange}{matrice di Householder}
+    tale che:
+    \[
+        \textcolor{orange}{P\mathbf{x} = \alpha \mathbf{e}_1 \quad \textcolor{black}{con} \quad \alpha \in \mathbb{R}}
+    \]
+    Dove \textcolor{orange}{$\alpha$} rappresenta una costante opportuna.
+\end{theorem}
+
+\begin{proof}
+    Vogliamo costruire esplicitamente $\mathbf{v}$ e $\beta$ tali che $P = I - \beta \mathbf{v}\mathbf{v}^t$ 
+    soddisfi $P\mathbf{x} = \alpha \mathbf{e}_1$.
+
+    \textbf{Passo 1: determinazione di $\alpha$.}
+    Poiché $P$ è unitaria ($P^t P = I$), essa preserva la norma euclidea:
+    \[
+        \|\mathbf{x}\| = \|P\mathbf{x}\| = \|\alpha \mathbf{e}_1\| = |\alpha|.
+    \]
+    Quindi necessariamente $|\alpha| = \|\mathbf{x}\|$. Per evitare cancellazione numerica nella scelta di $\mathbf{v}$,
+    si sceglie $\alpha$ con segno \textit{opposto} alla prima componente $x_1$ di $\mathbf{x}$:
+    \[
+        \alpha = -\,\mathrm{sgn}(x_1)\,\|\mathbf{x}\|, \qquad
+        \text{con} \quad \mathrm{sgn}(x_1) = \begin{cases} \dfrac{x_1}{|x_1|} & \text{se } x_1 \neq 0 \\ 1 & \text{se } x_1 = 0. \end{cases}
+    \]
+
+    \textbf{Passo 2: scelta di $\mathbf{v}$.}
+    La condizione $P\mathbf{x} = \alpha \mathbf{e}_1$ si riscrive come:
+    \[
+        (I - \beta \mathbf{v}\mathbf{v}^t)\mathbf{x} = \alpha \mathbf{e}_1
+        \quad\Longrightarrow\quad
+        \beta\,(\mathbf{v}^t \mathbf{x})\,\mathbf{v} = \mathbf{x} - \alpha \mathbf{e}_1.
+    \]
+    Questa equazione è soddisfatta scegliendo:
+    \[
+        \mathbf{v} = \mathbf{x} - \alpha \mathbf{e}_1.
+    \]
+    Notiamo che $\mathbf{v} \neq \mathbf{0}$: se fosse $\mathbf{v} = \mathbf{0}$, allora $\mathbf{x} = \alpha \mathbf{e}_1$
+    con $\alpha = -\mathrm{sgn}(x_1)\|\mathbf{x}\|$, ma questo implicherebbe $x_1 = \alpha = -|x_1|$, cioè $|x_1| = 0$,
+    contraddizione con $\mathbf{x} \neq \mathbf{0}$.
+
+    \textbf{Passo 3: determinazione di $\beta$.}
+    Con la scelta $\mathbf{v} = \mathbf{x} - \alpha \mathbf{e}_1$ si calcola:
+    \[
+        \mathbf{v}^t \mathbf{x} = (\mathbf{x} - \alpha \mathbf{e}_1)^t \mathbf{x}
+        = \|\mathbf{x}\|^2 - \alpha x_1.
+    \]
+    Osserviamo inoltre che:
+    \[
+        \|\mathbf{v}\|^2 = \|\mathbf{x} - \alpha \mathbf{e}_1\|^2 = \|\mathbf{x}\|^2 - 2\alpha x_1 + \alpha^2
+        = 2\|\mathbf{x}\|^2 - 2\alpha x_1 = 2(\mathbf{v}^t \mathbf{x}).
+    \]
+    Sostituendo nella condizione $\beta(\mathbf{v}^t\mathbf{x})\mathbf{v} = \mathbf{v}$:
+    \[
+        \beta\,(\mathbf{v}^t \mathbf{x}) = 1
+        \quad\Longrightarrow\quad
+        \beta = \frac{1}{\mathbf{v}^t \mathbf{x}} = \frac{2}{\|\mathbf{v}\|^2} = \frac{2}{\|\mathbf{x} - \alpha \mathbf{e}_1\|^2}.
+    \]
+    La matrice $P = I - \beta \mathbf{v}\mathbf{v}^t$ così costruita è quindi la Householder cercata.
+\end{proof}
+
+%=============================================================================================
+%In questo capitolo si pongono le base per la fattorizzazione di una generica matrice quadrata
+%=============================================================================================
 \subsection{Fattorizzazione di matrici}
 
 In questo paragrafo si introduce un teorema fondamentale per la fattorizzazione di matrici quadrate, che sarà alla base di molti metodi diretti per la risoluzione di sistemi lineari.
@@ -376,7 +444,7 @@ In questo paragrafo si introduce un teorema fondamentale per la fattorizzazione 
 %===============================================================================
 %In questa sezione vediamo alcuni metodi per la fattorizzazione LU.
 %===============================================================================
-\section{Metodo di eliminazione di Gauss} 
+\section{Metodo di eliminazione di Gauss - Fattorizzazione LU} 
 
 \begin{defi}[Metodo (di eliminazione) di Gauss - Fattorizzazione LU]
    Viene detto \textcolor{orange}{metodo (di eliminazione) di Gauss} o \textcolor{orange}{fattorizzazione LU} il procedimento
@@ -627,4 +695,68 @@ Dove \textcolor{orange}{$A^{(n)}$} è una matrice \textcolor{orange}{diagonale}.
 Solitamente si evita di implementare il metodo di Gauss-Jordan perche'non offre una maggiore stabilità numerica rispetto al metodo di Gauss
 (oltre ad avere un costo computazionale elevato).
 \end{obs}
-\section{Fattorizzazione QR}
+
+\section{Metodo di  Householder - Fattorizzazione QR}
+
+Come si può intuire, per analogia con il metodo di Gauss, è possibile utilizzare le matrici elementari di Householder per fattorizzare una matrice $A \in \mathbb{R}^{m \times n}$ in un prodotto $QR$, grazie ai teoremi (\ref{teorema:fatt_matrici_quadrate}) e (\ref{teo:householder}).
+
+\begin{defi}[Metodo di Householder - Fattorizzazione QR]
+    Viene detto \textcolor{orange}{metodo di Householder} o \textcolor{orange}{fattorizzazione QR} il procedimento
+    descritto nella dimostrazione del teorema (\ref{teorema:fatt_matrici_quadrate}) quando la matrice \textcolor{orange}{$E$} è un
+   prodotto di \textcolor{orange}{matrici elementari di Householder}, ovvero:
+   \textcolor{orange}{\[
+   E^{(k)} = \begin{bmatrix}
+    I & \mathbf{0}\\
+    \mathbf{0} & P^{(k)}
+   \end{bmatrix} =
+   \begin{bmatrix}
+    1 & \\
+    & \ddots \\
+    & & 1 \\
+    & & & P^{(k)}
+   \end{bmatrix}
+    \]}
+    Dove $\textcolor{orange}{P^{(k)}}$ è una matrice elementare di Householder di ordine $n-k+1$ tale che:
+    \[\textcolor{orange}{P^{(k)} \textbf{a}^{(k)} = \alpha e_1}\]
+    con $\textbf{a}^{(k)}$ la $k$-esima colonna di $A^{(k)}$ e $\alpha \in \mathbb{R}$ una costante opportuna.
+
+    Esplicitamente, ogni matrice di Householder ha la forma:
+    \[
+        \textcolor{orange}{P^{(k)} = I_{n-k+1} - \beta_k \textbf{v}^{(k)}\textbf{v}^{(k)t}}
+    \]
+    con $\beta_k \in \mathbb{R}$ e $\textbf{v}^{(k)} \in \mathbb{R}^{n-k+1}$ scelti in modo che $P^{(k)}\textbf{a}^{(k)} = \alpha e_1$.
+
+    Di conseguenza, la matrice elementare $E^{(k)}$ può essere scritta più esplicitamente come:
+    \[
+        \textcolor{orange}{E^{(k)} =
+        \begin{bmatrix}
+            I_{k-1} & \mathbf{0} \\
+            \mathbf{0} & I_{n-k+1} - \beta_k \textbf{v}^{(k)}\textbf{v}^{(k)t}
+        \end{bmatrix}}
+    \]
+
+    Dato che $\textcolor{orange}{P^{(k)}}$ è una matrice unitaria, si ha:
+    \[
+        \textcolor{orange}{Q = E^{(n-1)^{-1}} \cdots E^{(1)^{-1}} = E^{(1)^t} \cdots E^{(n-1)^t}}
+    \]
+    e quindi, esplicitamente:
+    \[
+        \textcolor{orange}{Q =
+        \begin{bmatrix}
+            P^{(1)} & \mathbf{0} \\
+            \mathbf{0} & I
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 &  &  &  \\
+             & P^{(2)} &  &  \\
+             &  & \ddots &  \\
+             &  &  & I
+        \end{bmatrix}
+        \cdots
+        \begin{bmatrix}
+            I_{n-2} & \mathbf{0} \\
+            \mathbf{0} & P^{(n-1)}
+        \end{bmatrix}}
+    \]
+    cioè $Q$ è il prodotto delle riflessioni di Householder estese all'intera matrice mediante blocchi diagonali.
+\end{defi}
