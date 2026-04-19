@@ -74,42 +74,51 @@ Quando in futuro cercheremo di misurare la sensibilità di un sistema lineare, c
 
 Noi ci concentreremo sullo studio di sistemi definiti da matrici $A$ che sono non singolari (invertibili).
 
-Vengono ora presentati alcuni esempi di sistemi lineari e dei metodi diretti per la loro risoluzione.
+Vengono ora presentate alcune \textcolor{orange}{definizioni} di sistemi lineari e dei metodi diretti per la loro risoluzione.
 
-\begin{example}[Matrici diagonali]
+\begin{defi}[Matrici diagonali]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice diagonale, ovvero:
-\[A = \begin{bmatrix}
+\textcolor{orange}{\[
+A = \begin{bmatrix}
 a_{11} & 0 & \cdots & 0 \\
 0 & a_{22} & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & a_{nn}
-\end{bmatrix}\]
+\end{bmatrix}
+\]}
 In questo caso, la soluzione del sistema è immediata e data da:
-\[x_i = \frac{b_i}{a_{ii}} \quad \text{per } i = 1, 2, \ldots, n\]
-\end{example}
+\textcolor{orange}{\[
+x_i = \frac{b_i}{a_{ii}} \quad \text{per } i = 1, 2, \ldots, n
+\]}
+\end{defi}
 
-\begin{example}[Matrici triangolari]
+\begin{defi}[Matrici triangolari]
 Consideriamo un sistema lineare $Ax = b$ in cui $A$ è una matrice triangolare superiore, ovvero:
-\[U = \begin{bmatrix}
+\textcolor{orange}{\[
+A = U = \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
 0 & a_{22} & \cdots & a_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & a_{nn}
-\end{bmatrix}\]
+\end{bmatrix}
+\]}
 In questo caso, la soluzione del sistema può essere trovata tramite il metodo di sostituzione all'indietro ($backward \, solve$), ovvero:
-\[x_n = \frac{b_n}{a_{nn}}, \quad x_i = \frac{b_i - \sum_{j=i+1}^n a_{ij}x_j}{a_{ii}}\]
+\textcolor{orange}{\[
+x_n = \frac{b_n}{a_{nn}}, \quad x_i = \frac{b_i - \sum_{j=i+1}^n a_{ij}x_j}{a_{ii}}
+\]}
 
-Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di sostituzione in avanti ($forward \, solve$).: 
-\[
-L =\begin{bmatrix}
+Nel caso di una matrice triangolare inferiore, si utilizza invece il metodo di sostituzione in avanti ($forward \, solve$).
+\textcolor{orange}{\[
+A = L =\begin{bmatrix}
 a_{11} & 0 & \cdots & 0 \\
 a_{21} & a_{22} & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nn}
 \end{bmatrix}
 \qquad
-x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}\]
-\end{example}
+ x_1=\frac{b_1}{a_{11}}, \quad x_i = \frac{b_i - \sum_{j=1}^{i-1} a_{ij}x_j}{a_{ii}}
+\]}
+\end{defi}
 
 \begin{obs}
 Nei prossimi paragrafi verranno utilizzate nuovamente le notazioni \textcolor{orange}{$U$} e \textcolor{orange}{$L$}
@@ -310,7 +319,10 @@ ed arrivare in modo intuitivo alla tesi del seguente teorema.
     \[
         \textcolor{orange}{P\mathbf{x} = \alpha \mathbf{e}_1 \quad \textcolor{black}{con} \quad \alpha \in \mathbb{R}}
     \]
-    Dove \textcolor{orange}{$\alpha$} rappresenta una costante opportuna.
+    Dove \textcolor{orange}{$\alpha$} rappresenta una costante opportuna e:
+    \[
+    \textcolor{orange}{\textbf{v} = \mathbf{x} - \alpha \mathbf{e}_1, \quad \beta = \frac{2}{\|\mathbf{v}\|^2}}
+    \]
 \end{theorem}
 
 \begin{proof}
@@ -721,54 +733,131 @@ Come si può intuire, per analogia con il metodo di Gauss, è possibile utilizza
     sotto la diagonale nella $k$-esima colonna di $A^{(k)}$.\\
 
     \textbf{Costruzione esplicita di $P^{(k)}$.}
-    In analogia con i moltiplicatori di Gauss $m_{ik} = a_{ik}^{(k)}/a_{kk}^{(k)}$, i parametri di ogni
-    riflessione di Householder si calcolano esplicitamente da $\mathbf{a}^{(k)}$:
-    \[
-        \textcolor{orange}{\alpha^{(k)} = -\,\mathrm{sgn}(a_1^{(k)})\,\bigl\|\mathbf{a}^{(k)}\bigr\|_2}
-    \]
-    \[
-        \textcolor{orange}{\mathbf{v}^{(k)} = \mathbf{a}^{(k)} - \alpha^{(k)} \mathbf{e}_1,
-        \qquad
-        \beta_k = \frac{2}{\bigl\|\mathbf{v}^{(k)}\bigr\|^2}}
-    \]
-    da cui:
-    \[
-        \textcolor{orange}{P^{(k)} = I_{n-k+1} - \beta_k\, \mathbf{v}^{(k)}\mathbf{v}^{(k)t}}
-    \]
+    La matreice \textcolor{orange}{$P^{(k)}$} è costruita seguendo il procedimento descritto nel teorema (\ref{teo:householder}), ovvero:
+    \[\textcolor{orange}{P^{(k)} = I - \beta \mathbf{v} \mathbf{v}^t}\]
+    con:
+    \[\textcolor{orange}{\mathbf{v} = \mathbf{x} - \alpha \mathbf{e}_1, \quad \beta = \frac{2}{\|\mathbf{v}\|^2}}\]
+    dove $\mathbf{x}$ è la $k$-esima colonna di $A^{(k)}$ a partire dalla riga $k$-esima, $\mathbf{e}_1$ è il primo vettore della base canonica di $\mathbb{R}^{n-k+1}$ e $\alpha$ è scelto come:
+    \[\textcolor{orange}{\alpha = -\,\mathrm{sgn}(x_1)\,\|\mathbf{x}\|}\]
 
-    Al termine dell'algoritmo si ottiene la \textcolor{orange}{matrice triangolare superiore}:
-    \[
-        \textcolor{orange}{R = A^{(n)} = E^{(n-1)} \cdots E^{(1)} A}
-    \]
-
-    Poiché ogni $P^{(k)}$ è simmetrica e ortogonale
-    ($P^{(k)t} P^{(k)} = I$ e $P^{(k)t} = P^{(k)}$),
-    si ha $P^{(k)^{-1}} = P^{(k)}$, e quindi anche $E^{(k)^{-1}} = E^{(k)}$.
-    In modo analogo alla fattorizzazione LU (dove $L = E^{(1)^{-1}} \cdots E^{(n-1)^{-1}}$),
-    si ricava la \textcolor{orange}{matrice ortogonale}:
-    \[
-        \textcolor{orange}{Q = E^{(1)^{-1}} \cdots E^{(n-1)^{-1}} = E^{(1)} \cdots E^{(n-1)}}
-    \]
-    ovvero, esplicitamente a blocchi:
-    \[
-        \textcolor{orange}{Q =
-        P^{(1)}
-        \begin{bmatrix}
-            1 & \mathbf{0}^t \\
-            \mathbf{0} & P^{(2)}
-        \end{bmatrix}
-        \cdots
-        \begin{bmatrix}
-            I_{n-2} & \mathbf{0} \\
-            \mathbf{0} & P^{(n-1)}
-        \end{bmatrix}}
-    \]
-    cioè $Q$ è il prodotto delle riflessioni di Householder estese all'intera matrice mediante blocchi
-    identità diagonali (dove $P^{(1)}$ è di ordine $n$ e non necessita di blocco identità).
-
-    La fattorizzazione risultante è quindi:
-    \[
-        \textcolor{orange}{A = QR}
-    \]
-    con $Q$ \textcolor{orange}{matrice ortogonale} e $R$ \textcolor{orange}{matrice triangolare superiore}.
+    Dato che, per un teorema di algebra lineare, $(AB)^t = B^t A^t$ e dato che \textcolor{orange}{$P^{(k)}$} è una matrice \textcolor{orange}{unitaria} ($P^{(k)^{-1}} = P^{(k)^t}$), si ha che:
+    \[\textcolor{orange}{Q = E^{(1)^{-1}} E^{(2){-1}} \cdots E^{(n-1)^{-1}} = E^{(1)^t} E^{(2)^t} \cdots E^{(n-1)^t} = (E^{(n-1)}E^{(n-2)} \cdots E^{(1)})^t}\]
+    è una matrice \textcolor{orange}{unitaria} e che:
+    \[\textcolor{orange}{R = A^{(n)} = E^{(n-1)} \cdots E^{(2)} E^{(1)} A}\]
+    è una matrice \textcolor{orange}{triangolare superiore}.
 \end{defi}
+
+\begin{example}[Esempio di fattorizzazione QR di una matrice $3 \times 3$]
+Consideriamo la matrice:
+\[
+A=
+\begin{bmatrix}
+2 & 1 & 1\\
+0 & 3 & 1\\
+0 & 4 & 1
+\end{bmatrix}
+\]
+e applichiamo il procedimento della definizione:
+\[
+A^{(1)}=A, \qquad A^{(k+1)} = E^{(k)}A^{(k)}
+\]
+
+\textbf{Passo $k=1$.} Si considera la prima colonna di $A^{(1)}$ a partire dalla riga 1:
+\[
+\mathbf{x}^{(1)} =
+\begin{bmatrix}
+2\\
+0\\
+0
+\end{bmatrix},
+\qquad
+\alpha_1 = -\mathrm{sgn}(2)\,\|\mathbf{x}^{(1)}\|=-2
+\]
+\[
+\mathbf{v}^{(1)} = \mathbf{x}^{(1)}-\alpha_1\mathbf{e}_1=
+\begin{bmatrix}
+4\\
+0\\
+0
+\end{bmatrix},
+\qquad
+\beta_1=\frac{2}{\|\mathbf{v}^{(1)}\|^2}=\frac{1}{8}
+\]
+\[
+P^{(1)}=I-\beta_1\mathbf{v}^{(1)}\mathbf{v}^{(1)t}=
+\begin{bmatrix}
+-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+Per $k=1$ vale $E^{(1)}=P^{(1)}$, quindi:
+\[
+A^{(2)}=E^{(1)}A^{(1)}=
+\begin{bmatrix}
+-2 & -1 & -1\\
+0 & 3 & 1\\
+0 & 4 & 1
+\end{bmatrix}
+\]
+
+\textbf{Passo $k=2$.} Si lavora sulla seconda colonna di $A^{(2)}$ dalla riga 2 in poi:
+\[
+\mathbf{x}^{(2)}=
+\begin{bmatrix}
+3\\
+4
+\end{bmatrix},
+\qquad
+\alpha_2=-\mathrm{sgn}(3)\,\|\mathbf{x}^{(2)}\|=-5
+\]
+\[
+\mathbf{v}^{(2)}=\mathbf{x}^{(2)}-\alpha_2\mathbf{e}_1=
+\begin{bmatrix}
+8\\
+4
+\end{bmatrix},
+\qquad
+\beta_2=\frac{2}{\|\mathbf{v}^{(2)}\|^2}=\frac{1}{40}
+\]
+\[
+P^{(2)}=I-\beta_2\mathbf{v}^{(2)}\mathbf{v}^{(2)t}=
+\begin{bmatrix}
+-\frac{3}{5} & -\frac{4}{5}\\
+-\frac{4}{5} & \frac{3}{5}
+\end{bmatrix}
+\]
+L'estensione a ordine 3 è:
+\[
+E^{(2)}=
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & -\frac{3}{5} & -\frac{4}{5}\\
+0 & -\frac{4}{5} & \frac{3}{5}
+\end{bmatrix}
+\]
+\[
+R=A^{(3)}=E^{(2)}A^{(2)}=
+\begin{bmatrix}
+-2 & -1 & -1\\
+0 & -5 & -\frac{7}{5}\\
+0 & 0 & -\frac{1}{5}
+\end{bmatrix}
+\]
+
+Infine, dalla definizione:
+\[
+Q=
+\begin{bmatrix}
+ -1 & 0 & 0\\
+ 0 & -\frac{3}{5} & -\frac{4}{5}\\
+ 0 & -\frac{4}{5} & \frac{3}{5}
+\end{bmatrix}
+\]
+con:
+\[
+Q={(E^{(2)}E^{(1)})}^t
+\]
+e si verifica immediatamente che $Q^{t}Q=I$ e $A=QR$.
+\end{example}
+
