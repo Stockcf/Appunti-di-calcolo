@@ -703,54 +703,59 @@ Come si può intuire, per analogia con il metodo di Gauss, è possibile utilizza
 \begin{defi}[Metodo di Householder - Fattorizzazione QR]
     Viene detto \textcolor{orange}{metodo di Householder} o \textcolor{orange}{fattorizzazione QR} il procedimento
     descritto nella dimostrazione del teorema (\ref{teorema:fatt_matrici_quadrate}) quando la matrice \textcolor{orange}{$E$} è un
-   prodotto di \textcolor{orange}{matrici elementari di Householder}, ovvero:
-   \textcolor{orange}{\[
-   E^{(k)} = \begin{bmatrix}
-    I & \mathbf{0}\\
-    \mathbf{0} & P^{(k)}
-   \end{bmatrix} =
-   \begin{bmatrix}
-    1 & \\
-    & \ddots \\
-    & & 1 \\
-    & & & P^{(k)}
-   \end{bmatrix}
+    prodotto di \textcolor{orange}{matrici elementari di Householder}, dove
+    \textcolor{orange}{\[
+    E^{(k)} =
+    \begin{bmatrix}
+        I_{k-1} & \mathbf{0}\\
+        \mathbf{0} & P^{(k)}
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & \\
+        & \ddots \\
+        & & 1 \\
+        & & & P^{(k)}
+    \end{bmatrix}
     \]}
-    Dove $\textcolor{orange}{P^{(k)}}$ è una matrice elementare di Householder di ordine $n-k+1$ tale che:
-    \[\textcolor{orange}{P^{(k)} \textbf{a}^{(k)} = \alpha e_1}\]
-    con $\textbf{a}^{(k)}$ la $k$-esima colonna di $A^{(k)}$ e $\alpha \in \mathbb{R}$ una costante opportuna.
+    e $\textcolor{orange}{P^{(k)}}$ è la \textcolor{orange}{matrice di Householder} di ordine $n-k+1$ che azzera le componenti
+    sotto la diagonale nella $k$-esima colonna di $A^{(k)}$.\\
 
-    Esplicitamente, ogni matrice di Householder ha la forma:
+    \textbf{Costruzione esplicita di $P^{(k)}$.}
+    In analogia con i moltiplicatori di Gauss $m_{ik} = a_{ik}^{(k)}/a_{kk}^{(k)}$, i parametri di ogni
+    riflessione di Householder si calcolano esplicitamente da $\mathbf{a}^{(k)}$:
     \[
-        \textcolor{orange}{P^{(k)} = I_{n-k+1} - \beta_k \textbf{v}^{(k)}\textbf{v}^{(k)t}}
+        \textcolor{orange}{\alpha^{(k)} = -\,\mathrm{sgn}(a_1^{(k)})\,\bigl\|\mathbf{a}^{(k)}\bigr\|_2}
     \]
-    con $\beta_k \in \mathbb{R}$ e $\textbf{v}^{(k)} \in \mathbb{R}^{n-k+1}$ scelti in modo che $P^{(k)}\textbf{a}^{(k)} = \alpha e_1$.
+    \[
+        \textcolor{orange}{\mathbf{v}^{(k)} = \mathbf{a}^{(k)} - \alpha^{(k)} \mathbf{e}_1,
+        \qquad
+        \beta_k = \frac{2}{\bigl\|\mathbf{v}^{(k)}\bigr\|^2}}
+    \]
+    da cui:
+    \[
+        \textcolor{orange}{P^{(k)} = I_{n-k+1} - \beta_k\, \mathbf{v}^{(k)}\mathbf{v}^{(k)t}}
+    \]
 
-    Di conseguenza, la matrice elementare $E^{(k)}$ può essere scritta più esplicitamente come:
+    Al termine dell'algoritmo si ottiene la \textcolor{orange}{matrice triangolare superiore}:
     \[
-        \textcolor{orange}{E^{(k)} =
-        \begin{bmatrix}
-            I_{k-1} & \mathbf{0} \\
-            \mathbf{0} & I_{n-k+1} - \beta_k \textbf{v}^{(k)}\textbf{v}^{(k)t}
-        \end{bmatrix}}
+        \textcolor{orange}{R = A^{(n)} = E^{(n-1)} \cdots E^{(1)} A}
     \]
 
-    Dato che $\textcolor{orange}{P^{(k)}}$ è una matrice unitaria, si ha:
+    Poiché ogni $P^{(k)}$ è simmetrica e ortogonale
+    ($P^{(k)t} P^{(k)} = I$ e $P^{(k)t} = P^{(k)}$),
+    si ha $P^{(k)^{-1}} = P^{(k)}$, e quindi anche $E^{(k)^{-1}} = E^{(k)}$.
+    In modo analogo alla fattorizzazione LU (dove $L = E^{(1)^{-1}} \cdots E^{(n-1)^{-1}}$),
+    si ricava la \textcolor{orange}{matrice ortogonale}:
     \[
-        \textcolor{orange}{Q = E^{(n-1)^{-1}} \cdots E^{(1)^{-1}} = E^{(1)^t} \cdots E^{(n-1)^t}}
+        \textcolor{orange}{Q = E^{(1)^{-1}} \cdots E^{(n-1)^{-1}} = E^{(1)} \cdots E^{(n-1)}}
     \]
-    e quindi, esplicitamente:
+    ovvero, esplicitamente a blocchi:
     \[
         \textcolor{orange}{Q =
+        P^{(1)}
         \begin{bmatrix}
-            P^{(1)} & \mathbf{0} \\
-            \mathbf{0} & I
-        \end{bmatrix}
-        \begin{bmatrix}
-            1 &  &  &  \\
-             & P^{(2)} &  &  \\
-             &  & \ddots &  \\
-             &  &  & I
+            1 & \mathbf{0}^t \\
+            \mathbf{0} & P^{(2)}
         \end{bmatrix}
         \cdots
         \begin{bmatrix}
@@ -758,5 +763,12 @@ Come si può intuire, per analogia con il metodo di Gauss, è possibile utilizza
             \mathbf{0} & P^{(n-1)}
         \end{bmatrix}}
     \]
-    cioè $Q$ è il prodotto delle riflessioni di Householder estese all'intera matrice mediante blocchi diagonali.
+    cioè $Q$ è il prodotto delle riflessioni di Householder estese all'intera matrice mediante blocchi
+    identità diagonali (dove $P^{(1)}$ è di ordine $n$ e non necessita di blocco identità).
+
+    La fattorizzazione risultante è quindi:
+    \[
+        \textcolor{orange}{A = QR}
+    \]
+    con $Q$ \textcolor{orange}{matrice ortogonale} e $R$ \textcolor{orange}{matrice triangolare superiore}.
 \end{defi}

@@ -122,15 +122,9 @@ Testo dell'esercizio.
 - **Codesnippet disabilitato**: Per aggiungere codice sorgente, copia il codice direttamente nel documento o usa ambienti `listings` di LaTeX.
 - **Struttura semplificata**: Il progetto non include grafici TikZ e code snippets per mantenere la semplicità. Aggiungili secondo le necessità.
 
-- **Istruzioni per il commit**:
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/Stockcf/Appunti-di-calcolo.git
-git push -u origin main --force
-
-fare copia e incolla nel terminale di vscode.
+### Istruzioni per il commit
+Usa il flusso Git normale e evita `--force`, che può sovrascrivere la storia remota.
+Per esempio: `git add .`, `git commit -m "Initial commit"`, `git push -u origin main`.
 ---
 
 **Data di Creazione:** Marzo 2026  

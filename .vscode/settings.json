@@ -1,5 +1,7 @@
 {
   "latex-workshop.view.pdf.viewer": "external",
   "latex-workshop.latex.autoBuild.run": "onSave",
-  "latex-workshop.latex.autoBuild.interval": 1000
+  "latex-workshop.latex.autoBuild.interval": 1000,
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "on"
 }
