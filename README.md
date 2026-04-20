@@ -122,6 +122,53 @@ Testo dell'esercizio.
 - **Codesnippet disabilitato**: Per aggiungere codice sorgente, copia il codice direttamente nel documento o usa ambienti `listings` di LaTeX.
 - **Struttura semplificata**: Il progetto non include grafici TikZ e code snippets per mantenere la semplicità. Aggiungili secondo le necessità.
 
+## 📊 Registro Lezioni
+
+Il file [registro.txt](registro.txt) contiene una tabella di tracciamento degli argomenti svolti,
+con stato appunti (`0..3`), capitolo collegato (`ch01`, `ch02`, `appendice`) e priorita' di ripasso.
+
+Per aggiornare automaticamente la dashboard in testa al file (numero lezioni, appunti completi,
+avanzamento complessivo), usa:
+
+```bash
+python tools/update_registro.py
+```
+
+Formula usata per l'avanzamento:
+
+```text
+avanzamento = (somma_stati / (3 * numero_lezioni)) * 100
+```
+
+Suggerimento rapido:
+- aggiorna solo le celle `Stato` e `Ripasso` dopo ogni sessione studio;
+- poi lancia lo script per riallineare la dashboard.
+
+Per una verifica autonoma tra quanto svolto a lezione e quanto e' scritto nei capitoli,
+con suggerimenti sulla struttura futura degli appunti, usa:
+
+```bash
+python tools/analizza_appunti.py
+```
+
+Lo script genera il report:
+
+```text
+reports/verifica_appunti.md
+```
+
+Per eseguire tutto in un unico comando (aggiorna dashboard + genera report + apre il report):
+
+```bash
+python tools/verifica_completa.py
+```
+
+Se vuoi solo generare senza aprire il file:
+
+```bash
+python tools/verifica_completa.py --no-open
+```
+
 ### Istruzioni per il commit
 Usa il flusso Git normale e evita `--force`, che può sovrascrivere la storia remota.
 Per esempio: `git add .`, `git commit -m "Initial commit"`, `git push -u origin main`.

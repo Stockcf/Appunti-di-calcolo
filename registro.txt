@@ -1,8 +1,44 @@
+REGISTRO LEZIONI + AVANZAMENTO APPUNTI
+
+Legenda stato appunti:
+- 0 = non iniziato
+- 1 = bozza
+- 2 = quasi completo
+- 3 = completo e ripassato
+
+Legenda priorita' esame:
+- A = alta priorita'
+- B = media priorita'
+- C = bassa priorita'
+
+Dashboard (si aggiorna con lo script tools/update_registro.py):
+- lezioni totali registrate: 5
+- appunti completi (stato 3): 0
+- avanzamento complessivo: 0%
+
+TRACCIAMENTO RAPIDO
+Data       | Ore | Docente             | Capitolo | Argomento principale                   | Stato | Ripasso | Priorita' | Azione successiva
+-----------|-----|---------------------|----------|----------------------------------------|-------|---------|-----------|------------------
+04/03/2026 | 3:0 | Cecilia Pagliantini | ch01     | Fondamenti, condizionamento, norme     |   0   |   no    |     A     | estrarre definizioni chiave
+11/03/2026 | 3:0 | Luca Heltai         | ch01     | Condizionamento + floating point       |   0   |   no    |     A     | aggiungere esempi cancellazione
+18/03/2026 | 3:0 | Luca Heltai         | ch02     | Sistemi lineari, LU, Gauss, pivoting   |   0   |   no    |     A     | scrivere algoritmo passo-passo
+25/03/2026 | 3:0 | Luca Heltai         | ch02     | QR, Householder, minimi quadrati       |   0   |   no    |     A     | confrontare QR vs equazioni normali
+01/04/2026 | 3:0 | Luca Heltai         | ch02     | Metodi iterativi, Jacobi, Gauss-Seidel |   0   |   no    |     A     | sintetizzare criteri di arresto
+
+Prossimo aggiornamento:
+- [ ] aggiornare stato dopo prossima sessione studio
+- [ ] segnare quali lezioni hanno almeno 1 esercizio svolto
+- [ ] eseguire: python tools/update_registro.py
+
+--------------------------------------------------------------------------------
+STORICO DETTAGLIATO LEZIONI
+--------------------------------------------------------------------------------
+
 Mer 04/03/2026 10:30-13:30 (3:0 h) lezione: Fondamenti della matematica numerica: definizione di problema ben posto, stabilita' relativa e assoluta, numero di condizionamento, risolvente. Approssimazione del numero di condizionamento mediante il risolvente. Definizione di problema numerico. Consistenza, stabilita' e convergenza di un problema numerico. Teorema di equivalenza di Lax-Richtmyer. Richiami di algebra lineare. Operazioni tra matrici e vettori e loro costo computazionale. Norme in spazi vettoriali, norma matriciale compatibile e indotta. Relazione tra norme di matrici e raggio spettrale. (CECILIA PAGLIANTINI)
 
-Mer 11/03/2026 10:30-13:30 (3:0 h) lezione: Condizionamento assoluto e relativo di un problema - Esempio con prodotto matrice vettore e condizionamento di una matrice - condizionamento del problema di somma di due numeri - motivazione su fenomeni di cancellazione - introduzione all'aritmetica floating point - rappresentazione con segno, mantissa ed esponente - proprietà delle rappresentazioni in virgola mobile (LUCA HELTAI)
+Mer 11/03/2026 10:30-13:30 (3:0 h) lezione: Condizionamento assoluto e relativo di un problema - Esempio con prodotto matrice vettore e condizionamento di una matrice - condizionamento del problema di somma di due numeri - motivazione su fenomeni di cancellazione - introduzione all'aritmetica floating point - rappresentazione con segno, mantissa ed esponente - proprieta' delle rappresentazioni in virgola mobile (LUCA HELTAI)
 
-Mer 18/03/2026 10:30-13:30 (3:0 h) lezione: Metodi numerici per la soluzione di sistemi lineari. Accenno alla distinzione tra metodi diretti e metodi iterativi. Metodi diretti per la soluzione di un sistema diagonale, triangolare superiore (metodo di sostituzione all'indietro), triangolare inferiore (metodo di sostituzione in avanti) e analisi del loro costo computazionale. Metodi diretti per la soluzione di sistemi generici mediante fattorizzazione della matrice del sistema. La fattorizzazione LU ed il metodo di eliminazione di Gauss: esistenza e unicità della fattorizzazione LU, definizione e proprietà delle matrici elementari di Gauss, derivazione dell'algoritmo di eliminazione di Gauss, analisi del costo computazionale della fattorizzazione e della risoluzione dei sistemi lineari risultanti. Accenno al metodo di eliminazione di Gauss con pivoting parziale. (LUCA HELTAI)
+Mer 18/03/2026 10:30-13:30 (3:0 h) lezione: Metodi numerici per la soluzione di sistemi lineari. Accenno alla distinzione tra metodi diretti e metodi iterativi. Metodi diretti per la soluzione di un sistema diagonale, triangolare superiore (metodo di sostituzione all'indietro), triangolare inferiore (metodo di sostituzione in avanti) e analisi del loro costo computazionale. Metodi diretti per la soluzione di sistemi generici mediante fattorizzazione della matrice del sistema. La fattorizzazione LU ed il metodo di eliminazione di Gauss: esistenza e unicita' della fattorizzazione LU, definizione e proprieta' delle matrici elementari di Gauss, derivazione dell'algoritmo di eliminazione di Gauss, analisi del costo computazionale della fattorizzazione e della risoluzione dei sistemi lineari risultanti. Accenno al metodo di eliminazione di Gauss con pivoting parziale. (LUCA HELTAI)
 
 Mer 25/03/2026 10:30-13:30 (3:0 h) lezione: La fattorizzazione QR ed il metodo di Householder per la risoluzione di sistemi lineari. Derivazione delle matrici elementari di Householder. Costo computazionale della fattorizzazione QR. Sistemi lineari sovradeterminati. Definizione di soluzione ai minimi quadrati. Derivazione delle equazioni normali. La fattorizzazione QR di matrici rettangolari ed il suo utilizzo per la soluzione del problema ai minimi quadrati (LUCA HELTAI)
 

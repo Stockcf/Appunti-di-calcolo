@@ -42,3 +42,9 @@ main.pdf
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# --- Sessione Copilot: automazioni locali ---
+tools/update_registro.py
+tools/analizza_appunti.py
+tools/verifica_completa.py
+reports/verifica_appunti.md
