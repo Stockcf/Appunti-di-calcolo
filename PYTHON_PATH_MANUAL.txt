@@ -1,0 +1,163 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              🔧 GUIDA SEMPLICE: TROVARE E USARE PYTHON                    ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SITUAZIONE:
+  ✓ Python è installato sul tuo computer
+  ✗ Ma Windows non sa dove trovarlo
+  → Soluzione: Trovare il percorso e dire a track_all.bat dove cercare
+
+═════════════════════════════════════════════════════════════════════════════
+METODO VELOCE (CONSIGLIATO)
+═════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Apri Command Prompt
+  1. Premi Windows key + R
+  2. Digita: cmd
+  3. Premi Enter
+  4. Si apre una finestra nera
+
+STEP 2: Digita questo comando:
+  py -c "import sys; print(sys.executable)"
+  Premi Enter
+
+STEP 3: Vedrai il percorso completo di Python
+  Esempio di output:
+    C:\Users\ricca\AppData\Local\Programs\Python\Python39\python.exe
+
+STEP 4: Seleziona e copia il percorso
+  1. Seleziona il testo (mouse o Ctrl+A)
+  2. Copia (Ctrl+C)
+
+STEP 5: Modifica track_all.bat
+  1. Nella cartella del tracker, doppio-click su: track_all.bat
+  2. Scegli: Edit with Notepad
+  3. Premi Ctrl+H (Find & Replace)
+  4. Find: python 
+  5. Replace with: [INCOLLA IL PERCORSO CHE HAI COPIATO]
+     Esempio: C:\Users\ricca\AppData\Local\Programs\Python\Python39\python.exe 
+  6. Click: Replace All
+  7. Salva (Ctrl+S)
+  8. Chiudi l'editor
+
+STEP 6: Prova track_all.bat
+  Doppio-click su: track_all.bat
+  Dovrebbe funzionare!
+
+═════════════════════════════════════════════════════════════════════════════
+METODO LENTO MA SICURO (Se il metodo veloce non funziona)
+═════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Doppio-click: find_python_complete.bat
+  Questo cercherà Python su TUTTO il disco C:
+  (Potrebbe richiedere 1-2 minuti)
+
+STEP 2: Vedrai i percorsi trovati
+  Scegli il primo (dovrebbe essere quello corretto)
+
+STEP 3: Copia il percorso
+
+STEP 4: Modifica track_all.bat come descritto sopra
+
+STEP 5: Salva e prova
+
+═════════════════════════════════════════════════════════════════════════════
+COME MODIFICARE track_all.bat (Dettagliato)
+═════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Apri track_all.bat con Notepad
+  Click destro su: track_all.bat
+  Scegli: Edit (o Open with → Notepad)
+
+STEP 2: Cerca questa riga:
+  python topic_tracker.py
+
+STEP 3: Sostituiscila così:
+  [PERCORSO_PYTHON] topic_tracker.py
+  
+  Dove [PERCORSO_PYTHON] è il percorso che hai copiato
+  
+  ESEMPIO COMPLETO:
+    Originale: python topic_tracker.py
+    Modificata: C:\Users\ricca\AppData\Local\Programs\Python\Python39\python.exe topic_tracker.py
+
+STEP 4: Cerca anche questa riga:
+  python generate_dashboard.py dashboard.html
+
+STEP 5: Sostituiscila così:
+  [PERCORSO_PYTHON] generate_dashboard.py dashboard.html
+  
+  ESEMPIO:
+    Originale: python generate_dashboard.py dashboard.html
+    Modificata: C:\Users\ricca\AppData\Local\Programs\Python\Python39\python.exe generate_dashboard.py dashboard.html
+
+STEP 6: Salva il file (Ctrl+S)
+
+STEP 7: Chiudi Notepad
+
+STEP 8: Doppio-click: track_all.bat
+
+═════════════════════════════════════════════════════════════════════════════
+ESEMPIO VISIVO COMPLETO
+═════════════════════════════════════════════════════════════════════════════
+
+Se il tuo Python è in: C:\Python39\python.exe
+
+Modifica track_all.bat così:
+
+PRIMA (originale):
+  python topic_tracker.py
+  python generate_dashboard.py dashboard.html
+
+DOPO (modificato):
+  C:\Python39\python.exe topic_tracker.py
+  C:\Python39\python.exe generate_dashboard.py dashboard.html
+
+FATTO! Adesso funzionerà!
+
+═════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: "Il comando 'py' non funziona"
+SOLUZIONE: Allora Python NON è veramente installato nella PATH
+           Prova: find_python_complete.bat
+
+PROBLEMA: "Non riesco ad aprire track_all.bat con Notepad"
+SOLUZIONE: 1. Click destro su track_all.bat
+           2. Scegli: Open with
+           3. Scegli: Notepad (o Bloc notes)
+           4. Se non vedi queste opzioni, doppio-click
+              e scegli: "Edit" o simile
+
+PROBLEMA: "Ho modificato il file ma non funziona ancora"
+SOLUZIONE: 1. Controlla di aver copiato il PERCORSO COMPLETO
+           2. Verifica che il file sia salvato (deve dire track_all.bat, non track_all.bat.txt)
+           3. Riprova con il percorso tra virgolette:
+              "C:\Python39\python.exe" topic_tracker.py
+
+═════════════════════════════════════════════════════════════════════════════
+ISTRUZIONI SUPER SEMPLICI (Se sei confuso)
+═════════════════════════════════════════════════════════════════════════════
+
+1. Apri Command Prompt
+2. Copia-incolla questo:
+   py -c "import sys; print(sys.executable)"
+3. Premi Enter
+4. Copia il risultato (dovrebbe essere un percorso a python.exe)
+5. Apri track_all.bat con Notepad
+6. Premi Ctrl+H
+7. In "Find" scrivi: python
+8. In "Replace" incolla il percorso
+9. Click "Replace All"
+10. Salva (Ctrl+S)
+11. Doppio-click track_all.bat
+12. ✓ FATTO!
+
+═════════════════════════════════════════════════════════════════════════════
+
+Se hai dubbi, scrivi il percorso che hai trovato e ti aiuterò!
+
+═════════════════════════════════════════════════════════════════════════════

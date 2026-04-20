@@ -1,0 +1,95 @@
+✅ SOLUZIONE: Python è installato ma non nella PATH
+
+═════════════════════════════════════════════════════════════════════════════
+
+TU HAI DETTO: "python è installato"
+
+SIGNIFICA: Python è sul tuo computer, ma Windows non sa dove trovarlo
+
+═════════════════════════════════════════════════════════════════════════════
+
+🚀 FIX AUTOMATICO (1 minuto):
+
+1. Doppio-click: find_python.bat
+   (Questo file è nella stessa cartella di track_all.bat)
+
+2. Attendi che cerchi Python
+
+3. Se trova Python:
+   ✓ Crea automaticamente: track_all_auto.bat
+   ✓ Questo file funzionerà correttamente
+
+4. Doppio-click: track_all_auto.bat
+   ✓ Adesso funzionerà!
+
+═════════════════════════════════════════════════════════════════════════════
+
+🔧 SE find_python.bat NON TROVA PYTHON:
+
+Allora devi trovare manualmente dove Python è installato:
+
+METODO 1 - Usa Windows Search:
+  1. Premi: Windows key + S
+  2. Digita: python.exe
+  3. Vedi il percorso completo (es: C:\Users\...\python.exe)
+  4. Copia l'intero percorso
+  5. Vedi METODO 3 sotto
+
+METODO 2 - Usa Command Prompt:
+  1. Apri Command Prompt
+  2. Digita: where python
+  3. Premi Enter
+  4. Vedrai il percorso
+  5. Copia quel percorso
+  6. Vedi METODO 3 sotto
+
+METODO 3 - Modifica track_all.bat manualmente:
+  1. Apri track_all.bat (destro-click → Edit)
+  2. Trova la riga con: python topic_tracker.py
+  3. Sostituisci "python" con il percorso completo
+  4. Esempio:
+     Da: python topic_tracker.py
+     A:  C:\Program Files\Python39\python.exe topic_tracker.py
+  5. Salva il file
+  6. Doppio-click: track_all.bat
+  7. Adesso dovrebbe funzionare!
+
+═════════════════════════════════════════════════════════════════════════════
+
+✅ PROCEDURA CONSIGLIATA:
+
+Step 1: Doppio-click find_python.bat
+        (Attendi che finisca)
+
+Step 2: Se crea track_all_auto.bat:
+        Doppio-click track_all_auto.bat
+        ✓ FATTO!
+
+Step 3: Se NON crea track_all_auto.bat:
+        Segui METODO 1 o 2 sopra per trovare Python
+        Poi segui METODO 3 per modificare il file
+
+═════════════════════════════════════════════════════════════════════════════
+
+FILE CHE ABBIAMO CREATO:
+
+find_python.bat
+  • Cerca automaticamente Python sul tuo computer
+  • Se lo trova, crea track_all_auto.bat
+  • Facile e veloce!
+
+track_all_auto.bat (verrà creato)
+  • Versione che funzionerà sul tuo sistema
+  • Usa il percorso corretto di Python
+
+═════════════════════════════════════════════════════════════════════════════
+
+PROVA ORA:
+
+1. Doppio-click: find_python.bat
+2. Attendi il risultato
+3. Se vedi "✓ Created: track_all_auto.bat":
+   → Doppio-click: track_all_auto.bat
+   → ✓ FUNZIONERÀ!
+
+═════════════════════════════════════════════════════════════════════════════

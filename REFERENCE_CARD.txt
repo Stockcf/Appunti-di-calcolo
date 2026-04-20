@@ -1,0 +1,301 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║     📚 CALCOLO NUMERICO - TOPIC TRACKER                       ║
+║     Smart Note Organization System                            ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│ PROBLEM SOLVED                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+You asked: "How can I smartly track which lecture topics have been 
+added to my notes and which still need to be written?"
+
+Solution: An automated system that compares registro.txt with your 
+chapters and shows exactly what's covered.
+
+┌────────────────────────────────────────────────────────────────┐
+│ EXECUTION (Pick One)                                           │
+└────────────────────────────────────────────────────────────────┘
+
+Option A - ONE CLICK (Easiest!)
+  → Double-click: track_all.bat
+  → Wait 3-5 seconds
+  → Dashboard opens automatically ✓
+
+Option B - Simple Console
+  → Double-click: run_tracker.bat
+  → See results in console window
+
+Option C - Command Line
+  → Open Command Prompt
+  → cd "...../copilot-worktree..."
+  → python topic_tracker.py
+
+┌────────────────────────────────────────────────────────────────┐
+│ UNDERSTANDING RESULTS                                          │
+└────────────────────────────────────────────────────────────────┘
+
+✓ COVERED (Green)
+  ✓ Lezione 3 (Mer 18/03/2026) - LUCA HELTAI
+  → Lecture topic is well-covered in your written chapters
+  → Status: DONE
+
+◐ PARTIAL (Orange)  
+  ◐ Lezione 2 (Mer 11/03/2026) - LUCA HELTAI
+  → Some content exists, but needs expansion
+  → Status: IN PROGRESS
+
+○ PENDING (Red)
+  ○ Lezione 4 (Mer 25/03/2026) - LUCA HELTAI
+  → Topic hasn't been written yet
+  → Status: TODO (HIGH PRIORITY)
+
+┌────────────────────────────────────────────────────────────────┐
+│ YOUR FILES                                                     │
+└────────────────────────────────────────────────────────────────┘
+
+Input:
+  📄 registro.txt          ← Your lecture log
+  📁 Chapters/             ← Your written chapters
+
+Output (Auto-Generated):
+  📊 topic_status.json     ← Data export
+  🌐 dashboard.html        ← Visual dashboard
+  🖥️ Console Summary       ← Immediate feedback
+
+Runners:
+  ⚙️ track_all.bat         ← Full automation (RECOMMENDED)
+  ⚙️ run_tracker.bat       ← Console only
+
+Documentation:
+  📖 QUICK_START.txt       ← Read this first!
+  📖 README_TRACKER.md     ← Complete guide
+  📖 TRACKER_SETUP.md      ← Technical details
+
+┌────────────────────────────────────────────────────────────────┐
+│ WORKFLOW EXAMPLES                                              │
+└────────────────────────────────────────────────────────────────┘
+
+SCENARIO 1: After Each Lecture
+  1. Lecture ends
+  2. Add topic to registro.txt (if not already there)
+  3. Run: double-click track_all.bat
+  4. Review dashboard
+  5. See which topics need writing
+
+SCENARIO 2: Writing New Content
+  1. Update chapter files in Chapters/
+  2. Add new \section{} headers with technical terms
+  3. Save files
+  4. Run: double-click track_all.bat
+  5. Refresh browser (F5) on dashboard
+  6. Watch coverage percentage increase
+
+SCENARIO 3: Weekly Review
+  1. Check dashboard for pending topics
+  2. Prioritize: pending > partial > covered
+  3. Plan writing for next week
+  4. Document progress
+  5. Run tracker again next week to verify
+
+SCENARIO 4: Before Submission
+  1. Run tracker: double-click track_all.bat
+  2. Check: All lectures at least ◐ PARTIAL?
+  3. If any ○ PENDING: add basic content
+  4. If any ◐ PARTIAL: expand to full coverage
+  5. Final run to verify all ✓ COVERED (or close)
+  6. Save topic_status.json as proof of progress
+
+┌────────────────────────────────────────────────────────────────┐
+│ DATA AT A GLANCE                                               │
+└────────────────────────────────────────────────────────────────┘
+
+Your Lectures (from registro.txt):
+  Lecture 1: Fondamenti della matematica numerica
+  Lecture 2: Floating point & condizionamento  
+  Lecture 3: Sistemi lineari - metodi diretti
+  Lecture 4: Fattorizzazione QR
+  Lecture 5: Metodi iterativi
+
+Expected Coverage:
+  Lecture 1: ✓ COVERED       (Chapter 1 covers fundamentals)
+  Lecture 2: ◐ PARTIAL       (mentioned but not detailed)
+  Lecture 3: ✓ COVERED       (Chapter 1 covers linear systems)
+  Lecture 4: ✓ COVERED       (Chapter 2 covers QR)
+  Lecture 5: ✓ COVERED       (Chapter 1 covers iterative)
+
+Summary:  3 Covered + 1 Partial + 1 Pending = 5 Total
+
+┌────────────────────────────────────────────────────────────────┐
+│ DASHBOARD FEATURES                                             │
+└────────────────────────────────────────────────────────────────┘
+
+Visual Elements:
+  ✓ Progress bar (shows % coverage)
+  ✓ Statistics cards (covered/partial/pending)
+  ✓ Color-coded sections (green/orange/red)
+  ✓ Topic detail cards (date, lecturer, preview)
+  ✓ Responsive design (works on phone/tablet/desktop)
+
+Interactive:
+  • Hover over topics for more details
+  • Refresh browser (F5) to see latest data
+  • Print/save as PDF for records
+  • Share with colleagues
+
+┌────────────────────────────────────────────────────────────────┐
+│ CUSTOMIZATION (Advanced)                                       │
+└────────────────────────────────────────────────────────────────┘
+
+Change Coverage Threshold:
+  In: topic_tracker.py
+  Find: if len(covered_keywords) > len(topic_keywords) * 0.7:
+  Change: 0.7 to desired value (0.5 = stricter, 0.9 = lenient)
+
+Add More Stopwords:
+  In: topic_tracker.py → extract_keywords()
+  Edit: stopwords = {'di', 'del', 'della', ...}
+
+Modify Output:
+  Edit: print_summary() for console changes
+  Edit: generate_html_dashboard() for HTML changes
+
+┌────────────────────────────────────────────────────────────────┐
+│ TROUBLESHOOTING                                                │
+└────────────────────────────────────────────────────────────────┘
+
+Problem: Batch file closes immediately
+Solution: Open Command Prompt, cd to folder, type: python topic_tracker.py
+          This shows the actual error message
+
+Problem: "Python is not recognized"
+Solution: Install Python from python.org
+          During install: CHECK "Add Python to PATH"
+
+Problem: Empty results / No topics found
+Solution: Check that registro.txt has lectures in correct format
+          Check that Chapters/*.tex files have \section{} headers
+
+Problem: Dashboard doesn't open
+Solution: Try double-clicking dashboard.html manually
+          Check that topic_status.json exists in the folder
+
+Problem: Incorrect coverage detection
+Solution: The system matches keywords exactly
+          If topics use different terms, it may miss matches
+          Check topic_status.json to verify what was detected
+
+┌────────────────────────────────────────────────────────────────┐
+│ KEYBOARD SHORTCUTS                                             │
+└────────────────────────────────────────────────────────────────┘
+
+In Dashboard:
+  F5               Refresh (reload latest data)
+  Ctrl+P           Print (save as PDF for records)
+  Ctrl+F           Search within page
+
+In Command Prompt:
+  Up/Down Arrows   Repeat previous commands
+  Ctrl+C           Stop running script
+
+┌────────────────────────────────────────────────────────────────┐
+│ FILE LOCATIONS                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+Working Directory:
+  C:\Users\ricca\Desktop\II anno\Calcolo numerico\
+  Appunti di calcolo.worktrees\copilot-worktree-2026-04-20T10-07-37\
+
+Input Files:
+  • registro.txt
+  • Chapters\ch01\chapter01.tex
+  • Chapters\ch02\chapter02.tex
+  • Chapters\appendice\...
+
+Python Scripts:
+  • topic_tracker.py
+  • generate_dashboard.py
+
+Batch Files:
+  • track_all.bat          ← USE THIS
+  • run_tracker.bat
+
+Output Files (after running):
+  • topic_status.json
+  • dashboard.html
+
+Documentation:
+  • QUICK_START.txt        ← READ THIS FIRST
+  • README_TRACKER.md
+  • TRACKER_SETUP.md
+  • IMPLEMENTATION_SUMMARY.md
+
+┌────────────────────────────────────────────────────────────────┐
+│ SUCCESS CHECKLIST                                              │
+└────────────────────────────────────────────────────────────────┘
+
+✓ Double-click track_all.bat works
+✓ Console shows topic list with status symbols (✓◐○)
+✓ topic_status.json is created
+✓ dashboard.html opens in browser
+✓ Dashboard shows progress bar and statistics
+✓ Can identify which topics to write next
+✓ Can track progress over time
+
+When all checks pass: ✅ IMPLEMENTATION COMPLETE
+
+┌────────────────────────────────────────────────────────────────┐
+│ NEXT ACTIONS                                                   │
+└────────────────────────────────────────────────────────────────┘
+
+Right Now:
+  1. Read QUICK_START.txt (2 min)
+  2. Double-click track_all.bat (5 sec)
+  3. Review dashboard (2 min)
+
+This Week:
+  1. Identify pending topics from dashboard
+  2. Plan writing for each pending topic
+  3. Add content to appropriate chapter files
+  4. Re-run tracker to verify progress
+
+Going Forward:
+  1. Run tracker weekly (every Monday?)
+  2. Use pending topics to guide your writing
+  3. Archive topic_status.json files to track progress over time
+  4. Share dashboard with study group for collaboration
+
+┌────────────────────────────────────────────────────────────────┐
+│ RESOURCES                                                      │
+└────────────────────────────────────────────────────────────────┘
+
+Documentation (in the same folder):
+  📄 QUICK_START.txt              Quick reference
+  📄 README_TRACKER.md            Complete user guide  
+  📄 TRACKER_SETUP.md             Technical documentation
+  📄 IMPLEMENTATION_SUMMARY.md     What was built
+
+Python Source Code:
+  🐍 topic_tracker.py             Main analyzer (fully commented)
+  🐍 generate_dashboard.py         Dashboard generator (fully commented)
+
+Batch Scripts:
+  ⚙️ track_all.bat                Everything automated
+  ⚙️ run_tracker.bat              Console only
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                    🚀 READY TO GET STARTED?
+
+                    Double-click: track_all.bat
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Questions? Check the documentation files.
+They have answers to common issues and advanced customization.
+
+Good luck with your studies! 📖✨
+
+Version 1.0 | Created 2026-04-20 | Ready to Use

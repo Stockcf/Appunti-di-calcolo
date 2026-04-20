@@ -1,0 +1,267 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              FIX: Python Not Found Error                                   ║
+║              "Python non è stato trovato"                                  ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+ERROR MESSAGE YOU SAW:
+═════════════════════════════════════════════════════════════════════════════
+
+  "Python non è stato trovato; eseguire senza argomenti da installare dal 
+   Microsoft Store o disabilitare questo collegamento da Impostazioni..."
+
+WHAT THIS MEANS:
+  Python is not installed or not in your system PATH
+
+═════════════════════════════════════════════════════════════════════════════
+SOLUTION (Choose One)
+═════════════════════════════════════════════════════════════════════════════
+
+OPTION A: QUICK FIX (5 minutes)
+────────────────────────────────────────────────────────────────────────────
+
+1. Double-click: check_python.bat
+   (This file is in the same folder as track_all.bat)
+
+2. Follow the instructions shown
+
+3. Install Python if needed
+
+4. Come back and try: track_all.bat
+
+
+OPTION B: INSTALL FROM MICROSOFT STORE (Easiest - 3 minutes)
+────────────────────────────────────────────────────────────────────────────
+
+1. Open Windows Settings
+   (Click Windows Start button → Settings)
+
+2. Go to: Apps → Apps & features
+
+3. Search: "Python"
+
+4. You should see Python packages
+   If you see Python, click it and Update/Install
+
+5. If you don't see Python:
+   • Click the + icon or search box
+   • Search for "Python"
+   • Find official Python release
+   • Click Install
+
+6. Wait for installation to complete
+
+7. Close Command Prompt completely (close all cmd windows)
+
+8. Open Command Prompt again
+
+9. Try: track_all.bat
+
+
+OPTION C: INSTALL FROM OFFICIAL WEBSITE (Most Reliable - 5 minutes)
+────────────────────────────────────────────────────────────────────────────
+
+1. Open browser and go to:
+   https://www.python.org/downloads/
+
+2. Click: "Download Python 3.x.x"
+   (Get the latest version, should be Python 3.9 or newer)
+
+3. Run the installer
+
+4. IMPORTANT: During installation:
+   ☑ CHECK the box: "Add Python to PATH"
+   ☐ (Uncheck "Install for all users" if you see it)
+
+5. Click "Install Now"
+
+6. Wait for installation to complete
+
+7. Close Command Prompt completely
+
+8. Open Command Prompt again
+
+9. Try: track_all.bat
+
+
+OPTION D: VERIFY EXISTING PYTHON (If you think it's installed)
+────────────────────────────────────────────────────────────────────────────
+
+1. Open Command Prompt
+
+2. Type: python --version
+   Press Enter
+
+3. If you see a version number (e.g., "Python 3.9.0"):
+   → Python IS installed
+   → Go to SOLUTION E below
+
+4. If you see "Python not found":
+   → Use OPTION C above to reinstall
+
+
+OPTION E: FIX PATH (If Python is installed but not in PATH)
+────────────────────────────────────────────────────────────────────────────
+
+1. Find where Python is installed
+
+2. Open Command Prompt
+
+3. Try: where python
+   This might show the path
+
+4. If it shows a path like "C:\Python39\python.exe":
+   Then Python IS in PATH, and something else is wrong
+   → Skip to TROUBLESHOOTING section
+
+5. If it doesn't show anything:
+   → Find python.exe on your computer (search Windows)
+   → Copy the folder path
+   → Edit track_all.bat
+   → Replace "python" with the full path
+   → Example: "C:\Python39\python.exe topic_tracker.py"
+
+
+OPTION F: DISABLE MICROSOFT STORE APP ALIAS (Advanced)
+────────────────────────────────────────────────────────────────────────────
+
+The error message suggests you might have the Microsoft Store app alias:
+
+1. Open Settings (Windows Start → Settings)
+
+2. Go to: Apps > Advanced app settings or 
+   Apps > App execution aliases
+
+3. Look for "python.exe" or "python"
+
+4. If enabled, toggle it OFF
+
+5. Try: track_all.bat again
+
+═════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════════════════
+
+PROBLEM: Check Python ran successfully but track_all.bat still fails
+
+SOLUTION:
+  1. Right-click: track_all.bat
+  2. Select: Edit
+  3. Replace first line: @echo off
+     With: @echo on
+  4. Save and run again
+  5. You'll see more detailed error messages
+
+PROBLEM: "Python found but track_all.bat doesn't work"
+
+SOLUTION:
+  1. Open Command Prompt
+  2. Navigate to folder:
+     cd "C:\Users\ricca\Desktop\II anno\Calcolo numerico\Appunti di calcolo.worktrees\copilot-worktree-2026-04-20T10-07-37"
+  3. Run Python directly:
+     python topic_tracker.py
+  4. This will show the actual error
+
+PROBLEM: Track_all.bat runs but nothing happens
+
+SOLUTION:
+  1. Make sure registro.txt exists
+  2. Make sure Chapters\ folder exists
+  3. Make sure you have .tex files in Chapters\ch01\ and Chapters\ch02\
+
+═════════════════════════════════════════════════════════════════════════════
+STEP-BY-STEP: INSTALL PYTHON (Detailed)
+═════════════════════════════════════════════════════════════════════════════
+
+If all above seems confusing, follow these exact steps:
+
+STEP 1: Get Python
+  1. Open Chrome/Edge/Firefox
+  2. Go to: www.python.org
+  3. Click big button: Download
+  4. You'll see: "Download Python 3.X.X"
+  5. Click the version that says "Download"
+
+STEP 2: Install Python
+  1. Find downloaded file (probably in Downloads)
+  2. It's called: python-3.X.X-amd64.exe
+  3. Double-click it
+  4. Wait for installer window to appear
+
+STEP 3: Configure Installation
+  1. IMPORTANT: At bottom of installer window:
+     ☑ CHECK: "Add Python 3.X to PATH"
+  2. Click: "Install Now"
+
+STEP 4: Wait
+  1. Let it install (takes 1-2 minutes)
+  2. You should see: "Setup was successful"
+
+STEP 5: Restart Command Prompt
+  1. Close all Command Prompt windows
+  2. Wait 10 seconds
+  3. Open Command Prompt again (fresh window)
+
+STEP 6: Verify
+  1. In Command Prompt, type: python --version
+  2. Press Enter
+  3. You should see: "Python 3.X.X"
+
+STEP 7: Try Again
+  1. Go to your notes folder
+  2. Double-click: track_all.bat
+  3. It should work now!
+
+═════════════════════════════════════════════════════════════════════════════
+QUICK VERIFICATION
+═════════════════════════════════════════════════════════════════════════════
+
+After you think Python is installed, verify:
+
+1. Open Command Prompt
+2. Type: python --version
+3. Press Enter
+
+Expected output:
+  ✓ Python 3.8.0
+  ✓ Python 3.9.0
+  ✓ Python 3.10.0
+  ✓ (Any version 3.6 or newer)
+
+If you see:
+  ✗ "Python not found"
+  → Go back and try installation again
+
+═════════════════════════════════════════════════════════════════════════════
+WHEN TO ASK FOR HELP
+═════════════════════════════════════════════════════════════════════════════
+
+If after trying all above:
+  • Python still doesn't work
+  • You're unsure which version to install
+  • Installation failed
+  • Something else is wrong
+
+Then:
+  • Take a screenshot of the error
+  • Note what you tried
+  • Share the error message
+
+═════════════════════════════════════════════════════════════════════════════
+
+SUMMARY:
+─────────────────────────────────────────────────────────────────────────────
+
+Your system doesn't have Python installed.
+
+The fastest fix:
+  → Go to: https://www.python.org/downloads/
+  → Download latest Python
+  → During install: CHECK "Add to PATH"
+  → Restart Command Prompt
+  → Try: track_all.bat
+
+That's it! Should take ~5 minutes total.
+
+═════════════════════════════════════════════════════════════════════════════
