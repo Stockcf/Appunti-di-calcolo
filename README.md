@@ -169,6 +169,56 @@ Se vuoi solo generare senza aprire il file:
 python tools/verifica_completa.py --no-open
 ```
 
+## Assistente Agente Appunti (PDF + web + stile locale)
+
+Per supportare la scrittura coerente degli appunti e' disponibile:
+
+- prompt agente in `.github/prompts/assistente-appunti-calcolo.prompt.md`;
+- script di preparazione brief in `tools/agent_appunti.py`.
+
+### 1) Genera il brief contestuale
+
+```bash
+python tools/agent_appunti.py --topic "Metodo di Gauss con pivoting parziale" --chapter ch03 --detail medio
+```
+
+Per generare il brief e aggiungere subito una bozza LaTeX nel capitolo target:
+
+```bash
+python tools/agent_appunti.py --topic "Metodo di Gauss con pivoting parziale" --chapter ch03 --detail medio --write-draft
+```
+
+Per scegliere un file target specifico:
+
+```bash
+python tools/agent_appunti.py --topic "Metodo di Gauss con pivoting parziale" --write-draft --target-file "Chapters/appendice/appendice.tex"
+```
+
+Output predefinito:
+
+```text
+reports/brief_agente_appunti.md
+```
+
+Il brief include:
+- profilo stile estratto dai capitoli LaTeX esistenti;
+- estratti dai PDF locali (prime pagine, filtrate per keyword);
+- una sintesi online (Wikipedia API) con URL;
+- prompt operativo pronto da usare in chat.
+
+### 2) Apri il prompt agente in chat
+
+Usa il file `.github/prompts/assistente-appunti-calcolo.prompt.md` come base istruzioni
+e incolla i punti principali di `reports/brief_agente_appunti.md`.
+
+### 3) Dipendenza opzionale per PDF
+
+Per leggere i PDF in modo robusto e' consigliato installare:
+
+```bash
+pip install pypdf
+```
+
 ### Istruzioni per il commit
 Usa il flusso Git normale e evita `--force`, che può sovrascrivere la storia remota.
 Per esempio: `git add .`, `git commit -m "Initial commit"`, `git push -u origin main`.

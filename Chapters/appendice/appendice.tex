@@ -1,5 +1,116 @@
 \chapter*{Appendice}
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendice}
 
 \section*{\textbf{A -} Richiami di Algebra lineare}
 
-\section*{\textbf{B -} Numeri binari}
+\section*{\textbf{B -} Rappresentazione in base di un numero, Numeri binari e aritmetica in virgola mobile}
+
+\begin{defi}[Rappresentazione in base di un numero]
+Sia \textcolor{blue}{$x \in \mathbb{R}$} un numero reale non nullo e sia \textcolor{blue}{$\beta \in \mathbb{N}\setminus\{1\}$} un intero detto \textcolor{blue}{base}.
+Allora esistono e sono unici un intero \textcolor{blue}{$p \in \mathbb{Z}$} (esponente) e una successione di cifre intere \textcolor{blue}{$d_i$},
+con \textcolor{blue}{$0 \leq d_i < \beta$} e \textcolor{blue}{$d_1 \neq 0$}, tali che:
+\textcolor{blue}{\[
+x = sgn(x) \beta^p \sum_{i=1}^{\infty} d_i \beta^{-i}
+\]}
+dove $sgn(x)$ è la funzione segno di $x$, la somma $\sum_{i=1}^{\infty} d_i \beta^{-i}$ è detta 
+\textcolor{blue}{mantissa} e i coefficienti \textcolor{blue}{$d_i$} sono detti
+\textcolor{blue}{cifre della rappresentazione} in base $\beta$ di $x$.
+\end{defi}
+
+\begin{example}[Rappresentazione in base 10]
+Il numero $347.25_{10}$ si può scrivere come
+\[
+347.25 = 3 \cdot 10^2 + 4 \cdot 10^1 + 7 \cdot 10^0 + 2 \cdot 10^{-1} + 5 \cdot 10^{-2}.
+\]
+In questo caso si ha:
+\begin{itemize}
+    \item $sgn(347.25) = 1$,
+    \item $p = 3$,
+    \item $d_1 = 3$, $d_2 = 4$, $d_3 = 7$, $d_4 = 2$, $d_5 = 5$ e $d_i = 0$ per $i > 5$.
+\end{itemize}
+\end{example}
+
+\begin{example}[Rappresentazione binaria]
+Il numero $13.625_{10}$ in base 2 è
+\[
+13.625_{10} = 1101.101_2,
+\]
+poiché
+\[
+1101.101_2 = 1\cdot2^3 + 1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 + 1\cdot2^{-1} + 0\cdot2^{-2} + 1\cdot2^{-3}.
+\]
+Quindi la parte intera e la parte frazionaria sono entrambe espresse con potenze di $2$.
+\end{example}
+
+Proprio come noi, i calcolatori hanno una capacità di memorizzare informazioni limitata, e non possono quindi rappresentare numeri con un numero infinito di cifre.
+Per questo motivo, si introduce il concetto di \textbf{numeri macchina}.
+
+\begin{defi}[Numeri di macchina]
+Siano \textcolor{blue}{$t, L, U \in \mathbb{N}$} con \textcolor{blue}{$t \geq 1$} e \textcolor{blue}{$0 < L < U$}.
+
+Viene definito \textcolor{blue}{l'insieme dei numeri di macchina} in base \textcolor{blue}{$\beta$} e cifre significative \textcolor{blue}{$t$} come:
+\textcolor{blue}{\[
+\mathcal{F}(\beta, t, L, U) = \{0\} \cup \{sgn(x) \beta^p \sum_{i=1}^{t} d_i \beta^{-i} : L \leq p \leq U, 0 \leq d_i < \beta, d_1 \neq 0\}
+\]}
+\end{defi}
+
+Per rendere \textbf{unica} la rappresentazione in base di un numero reale,
+si usa la cosiddetta forma \textcolor{blue}{normalizzata}.
+
+In questo modo la prima cifra della mantissa e' non nulla e si evitano scritture equivalenti
+dello stesso numero.
+
+\begin{obs}
+La normalizzazione elimina ambiguita' del tipo
+\[
+0.10\cdot 10^2 = 0.01\cdot 10^3,
+\]
+ed e' la convenzione standard nelle definizioni teoriche dell'insieme dei numeri macchina.
+\end{obs}
+
+\begin{prop}[\textbf{Numero di elementi di $\mathcal{F}(\beta,t,L,U)$}]
+Fissati base, cifre significative e intervallo degli esponenti, il numero di elementi non nulli e':
+\[
+2\,(U-L+1)\,(\beta-1)\,\beta^{t-1},
+\]
+quindi la cardinalita' dell'insieme dei numeri macchina e':
+\[
+\#\mathcal{F}(\beta,t,L,U)=1+2\,(U-L+1)\,(\beta-1)\,\beta^{t-1}.
+\]
+\end{prop}
+
+\begin{obs}[Conseguenza]
+L'insieme dei numeri macchina e' finito; di conseguenza quasi tutti i numeri reali
+\textbf{non} sono rappresentabili esattamente in macchina.
+\end{obs}
+
+La rappresentazione in macchina di un numero reale introduce quindi un errore, detto
+\textcolor{blue}{errore di rappresentazione}, che dipende, per l'appunto, dalla capacità limitata del calcolatore di rappresentare i numeri reali.
+
+In particolare, se $x$ non e' rappresentabile esattamente, si deve scegliere un numero di macchina (\textcolor{blue}{$fl(x)$}) che approssimi $x$
+alla \textcolor{blue}{$t$-esima cifra  significativa}, secondo una \textcolor{blue}{regola di arrotondamento}.
+
+Nella scelta di $fl(x)$, si può incombere in due tipi di problemi.
+
+\begin{defi}[Overflow e underflow]
+Sia \textcolor{blue}{$x\neq 0$}.
+\begin{itemize}
+    \item \textcolor{blue}{\textbf{overflow}}: $|x|$ e' troppo grande per il range di esponenti disponibile;
+    \item \textcolor{blue}{\textbf{underflow}}: $|x|$ e' troppo piccolo e puo' essere approssimato a zero
+    (o a un numero denormalizzato, se previsto dal formato).
+\end{itemize}
+\end{defi}
+
+\subsection*{Aritmetica in virgola mobile (floating-point)}
+
+\begin{defi}[Aritmetica in virgola mobile]
+Si chiama \textbf{aritmetica in virgola mobile} l'aritmetica in cui ogni operazione
+$\circ\in\{+, -, \cdot, /\}$ tra numeri macchina $x,y$ viene eseguita come
+\[
+x \circ_m y = fl(x \circ y),
+\]
+cioe' il risultato reale dell'operazione viene successivamente riportato nel formato di macchina
+tramite una regola di arrotondamento.
+\end{defi}
+

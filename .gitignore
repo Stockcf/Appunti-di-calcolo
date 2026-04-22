@@ -48,3 +48,8 @@ tools/update_registro.py
 tools/analizza_appunti.py
 tools/verifica_completa.py
 reports/verifica_appunti.md
+
+# --- Materiale di studio non versionato ---
+Dispensa11-12.pdf
+Metodi_Numerici_per_l'Algebra_Lineare.pdf
+reports/scheda_dispense.md
